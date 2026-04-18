@@ -3,417 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Web | O Seu Parceiro Digital</title>
+    <title>Agência Digital Pro | Soluções Web de Alta Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globais e Variáveis */
         :root {
-            --primary-color: #5a4fcf; /* Cor roxa semelhante à da imagem */
-            --primary-hover: #483bb5;
-            --bg-color: #f8f9fa;
-            --text-main: #333;
-            --text-light: #666;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
             --white: #ffffff;
-            --border-color: #e5e7eb;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
-        /* Navegação */
+        /* Header & Nav */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
+            padding: 1.2rem 5%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .logo img {
-            max-height: 50px;
-            object-fit: contain;
+            height: 65px; /* Aumentado como solicitado */
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--dark);
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--accent);
         }
 
-        .btn-cta {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
+        .btn-main {
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s;
         }
 
-        .btn-cta:hover {
-            background-color: var(--primary-hover);
-        }
-
-        /* Secções Gerais */
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-main);
+        .btn-main:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
         }
 
         /* Hero Section */
         .hero {
+            padding: 10rem 5% 6rem;
             text-align: center;
-            padding: 8rem 5%;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f2f5 100%);
+            background: radial-gradient(circle at top right, #e0e7ff, transparent), 
+                        radial-gradient(circle at bottom left, #f1f5f9, transparent);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+            font-size: 3.8rem;
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: #64748b;
         }
 
-        /* História */
-        .historia-content {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        /* Banner Oferta */
+        .offer-banner {
+            background: var(--dark);
+            color: white;
+            padding: 1rem;
             text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        /* Portfólio */
-        .portfolio-grid {
+        .offer-banner span {
+            color: #fbbf24;
+            text-transform: uppercase;
+        }
+
+        /* Secções */
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Portfólio & Iframe */
+        .portfolio-featured {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Aspect Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Domínios */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .domain-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .domain-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .domain-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .domain-price {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        /* Testemunhos */
+        .testimonials {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .portfolio-item {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+        .test-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent);
         }
 
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 200px;
-            background-color: #e0e0e0; /* Placeholder para imagens */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
+        .test-card p {
             font-style: italic;
+            margin-bottom: 1rem;
         }
 
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-
-        /* Domínios */
-        .dominios-list {
-            background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .dominio-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s;
-        }
-
-        .dominio-item:last-child {
-            border-bottom: none;
-        }
-
-        .dominio-item:hover {
-            background: #f8f9ff;
-        }
-
-        .dominio-nome {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .dominio-preco {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .dominio-preco span {
+        .test-author {
+            font-weight: 700;
             font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: normal;
+            color: var(--dark);
         }
 
         /* Orçamento */
-        .orcamento-box {
+        .calc-container {
             background: var(--white);
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            max-width: 800px;
+            padding: 4rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+        .input-group {
+            margin-bottom: 2rem;
         }
 
         select {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
             font-size: 1rem;
-            background-color: var(--white);
-            outline: none;
+            background: #f1f5f9;
+            transition: border-color 0.3s;
         }
 
         select:focus {
-            border-color: var(--primary-color);
+            outline: none;
+            border-color: var(--accent);
         }
 
-        .preco-destaque {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #f0f2f5;
-            border-radius: 5px;
+        .price-tag {
+            background: var(--dark);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
             text-align: center;
         }
 
-        .preco-destaque h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
+        .price-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #60a5fa;
         }
 
-        .valor-final {
-            font-size: 3rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        /* Footer */
         footer {
-            background: #222;
-            color: var(--white);
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 5%;
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
 
+    <div class="offer-banner">
+        🔥 CAMPANHA DE VERÃO: AO CRIAR O SEU WEBSITE CONNOSCO, A <span>HOSPEDAGEM É 100% GRATUITA</span>
+    </div>
+
     <header>
         <nav>
             <div class="logo">
-                <img src="imagem_2026-04-18_173910294.png" alt="Logótipo da Empresa">
+                <img src="imagem_2026-04-18_173910294.png" alt="Logo Agência">
             </div>
             <ul class="nav-links">
-                <li><a href="#historia">A Nossa História</a></li>
                 <li><a href="#portfolio">Portfólio</a></li>
                 <li><a href="#dominios">Domínios</a></li>
+                <li><a href="#clientes">Clientes</a></li>
             </ul>
-            <a href="#orcamento" class="btn-cta">Pedir Orçamento</a>
+            <a href="#orcamento" class="btn-main">Pedir Orçamento</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Transformamos Negócios Reais em Sucessos Digitais</h1>
-        <p>A tua presença online começa aqui. Websites rápidos, modernos e otimizados para destacar a tua marca na internet.</p>
-        <a href="#orcamento" class="btn-cta" style="font-size: 1.2rem; padding: 1rem 2rem;">Criar o meu Website</a>
-    </section>
-
-    <section id="historia">
-        <h2>A Nossa História</h2>
-        <div class="historia-content">
-            <p>Tudo começou como um projeto de verão com uma visão muito clara: ajudar os negócios da nossa região a prosperar no mundo digital. Sabemos que construir uma empresa não é uma corrida de velocidade, mas sim uma maratona. É por isso que acreditamos em criar "ativos digitais" sólidos que gerem valor e retorno para os nossos clientes ao longo dos anos. Aliamos a energia e a inovação da nova geração à seriedade técnica necessária para construir soluções robustas, profissionais e feitas à medida.</p>
+        <h1>Design que Converte,<br>Tecnologia que Escala.</h1>
+        <p>Não construímos apenas sites. Criamos motores de venda para o seu negócio com as tecnologias mais recentes do mercado.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="#orcamento" class="btn-main">Começar agora</a>
+            <a href="#portfolio" class="btn-main" style="background: white; color: var(--dark); border: 1px solid #e2e8f0;">Ver Projetos</a>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2>Criados por Nós</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="portfolio-img">[ Imagem do Website 1 ]</div>
-                <div class="portfolio-info">
-                    <h3>Restaurante Sabor Local</h3>
-                    <p>Website corporativo com menu digital e sistema de reservas integrado.</p>
-                </div>
+        <div class="section-title">
+            <h2>Projetos de Referência</h2>
+            <p>Veja a qualidade do nosso trabalho em tempo real.</p>
+        </div>
+        
+        <div class="portfolio-featured">
+            <h3 style="margin-bottom: 1.5rem;">Destaque: Dentamedi.pt</h3>
+            <div class="iframe-container">
+                <iframe src="https://dentamedi.pt" title="Dentamedi Portfolio"></iframe>
             </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">[ Imagem do Website 2 ]</div>
-                <div class="portfolio-info">
-                    <h3>Clínica Sorriso</h3>
-                    <p>Página de serviços médicos com otimização SEO e formulário de contactos.</p>
-                </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">* Pré-visualização interativa do website desenvolvido para o setor da saúde.</p>
+        </div>
+    </section>
+
+    <section id="dominios" style="background: #f1f5f9; max-width: 100%;">
+        <div class="section-title">
+            <h2>Registo de Domínios</h2>
+            <p>Preços competitivos com gestão técnica incluída.</p>
+        </div>
+        
+        <div class="domains-grid" style="max-width: 1200px; margin: 0 auto;">
+            <div class="domain-card">
+                <span class="domain-name">.pt</span>
+                <span class="domain-price">28,75 €</span>
             </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">[ Imagem do Website 3 ]</div>
-                <div class="portfolio-info">
-                    <h3>Loja de Moda Urbana</h3>
-                    <p>E-commerce moderno com catálogo dinâmico de produtos.</p>
-                </div>
+            <div class="domain-card">
+                <span class="domain-name">.com</span>
+                <span class="domain-price">20,69 €</span>
+            </div>
+            <div class="domain-card">
+                <span class="domain-name">.tech</span>
+                <span class="domain-price">8,04 €</span>
+            </div>
+            <div class="domain-card">
+                <span class="domain-name">.info</span>
+                <span class="domain-price">3,74 €</span>
+            </div>
+            <div class="domain-card">
+                <span class="domain-name">.cloud</span>
+                <span class="domain-price">2,49 €</span>
+            </div>
+            <div class="domain-card">
+                <span class="domain-name">.store</span>
+                <span class="domain-price">1,24 €</span>
             </div>
         </div>
     </section>
 
-    <section id="dominios">
-        <h2>Registe o seu Domínio</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: #666;">Garanta o endereço perfeito para a sua marca. Tratamos de todo o processo técnico.</p>
-        <div class="dominios-list">
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.ai</div>
-                <div class="dominio-preco">91,98 € <span>/ 1º ano</span></div>
+    <section id="clientes">
+        <div class="section-title">
+            <h2>O que dizem os nossos clientes</h2>
+        </div>
+        <div class="testimonials">
+            <div class="test-card">
+                <p>"O aumento de leads foi imediato após o lançamento do novo site. Profissionalismo impecável."</p>
+                <div class="test-author">— Dr. Ricardo Silva, Dentamedi</div>
             </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.tech</div>
-                <div class="dominio-preco">8,04 € <span>/ 1º ano</span></div>
+            <div class="test-card">
+                <p>"A oferta da hospedagem gratuita foi o que me convenceu, mas a qualidade do design superou as expetativas."</p>
+                <div class="test-author">— Maria João, Boutique Trendy</div>
             </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.info</div>
-                <div class="dominio-preco">3,44 € <span>/ 1º ano</span></div>
-            </div>
-            
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.cloud</div>
-                <div class="dominio-preco">2,49 € <span>/ 1º ano</span></div>
-            </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.blog</div>
-                <div class="dominio-preco">2,49 € <span>/ 1º ano</span></div>
-            </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.art</div>
-                <div class="dominio-preco">2,49 € <span>/ 1º ano</span></div>
-            </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.store</div>
-                <div class="dominio-preco">1,24 € <span>/ 1º ano</span></div>
-            </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.fun</div>
-                <div class="dominio-preco">1,24 € <span>/ 1º ano</span></div>
-            </div>
-            <div class="dominio-item">
-                <div class="dominio-nome">oseudominio.sbs</div>
-                <div class="dominio-preco">1,24 € <span>/ 1º ano</span></div>
+            <div class="test-card">
+                <p>"Processo rápido, transparente e um resultado final extremamente moderno."</p>
+                <div class="test-author">— Eng. Carlos Santos, TechSolutions</div>
             </div>
         </div>
     </section>
 
     <section id="orcamento">
-        <h2>Quer criar um website para o seu negócio?</h2>
-        <div class="orcamento-box">
-            <div class="form-group">
-                <label for="tipo-negocio">Qual é o tipo de negócio?</label>
-                <select id="tipo-negocio">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="restauracao">Restauração / Cafés</option>
-                    <option value="servicos">Serviços / Consultoria</option>
-                    <option value="retalho">Loja Física / Retalho</option>
-                    <option value="saude">Saúde / Estética</option>
-                    <option value="outro">Outro</option>
-                </select>
+        <div class="calc-container">
+            <div class="section-title">
+                <h2>Simulador de Projeto</h2>
+                <p>Selecione as opções e obtenha um valor imediato.</p>
             </div>
             
-            <div class="form-group">
-                <label for="num-paginas">Quantas páginas deseja que o website tenha?</label>
-                <select id="num-paginas" onchange="calcularOrcamento()">
-                    <option value="0" selected>Selecione o número de páginas...</option>
-                    <option value="75">Apenas 1 Página (Landing Page)</option>
-                    <option value="119">Entre 2 a 4 Páginas</option>
-                    <option value="139">5 ou mais Páginas</option>
+            <div class="input-group">
+                <label style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Área de Negócio</label>
+                <select>
+                    <option>Saúde e Bem-Estar</option>
+                    <option>E-commerce / Vendas</option>
+                    <option>Imobiliária</option>
+                    <option>Serviços Profissionais</option>
                 </select>
             </div>
 
-            <div class="preco-destaque">
-                <h3>O seu investimento estimado:</h3>
-                <div class="valor-final" id="valor-display">0 €</div>
+            <div class="input-group">
+                <label style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Estrutura do Website</label>
+                <select id="paginas" onchange="atualizarPreco()">
+                    <option value="0">Escolha a dimensão...</option>
+                    <option value="75">Landing Page (1 Página) - 75€</option>
+                    <option value="119">Site Institucional (2-4 Páginas) - 119€</option>
+                    <option value="139">Portal Completo (5+ Páginas) - 139€</option>
+                </select>
+            </div>
+
+            <div class="price-tag">
+                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #94a3b8;">Investimento Estimado</p>
+                <div class="price-value" id="total">0 €</div>
+                <p style="margin-top: 1rem; color: #fbbf24;">+ Hospedagem GRÁTIS Incluída</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 A Nossa Empresa de Web Design. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Agência Digital Pro. Qualidade e Rigor na Construção do seu Futuro Online.</p>
     </footer>
 
     <script>
-        function calcularOrcamento() {
-            // Vai buscar o valor (preço) associado à opção de páginas selecionada
-            var selectPaginas = document.getElementById("num-paginas");
-            var precoCalculado = selectPaginas.value;
-            var display = document.getElementById("valor-display");
-            
-            if (precoCalculado > 0) {
-                display.innerText = precoCalculado + " €";
-            } else {
-                display.innerText = "0 €";
-            }
+        function atualizarPreco() {
+            const val = document.getElementById('paginas').value;
+            document.getElementById('total').innerText = val + " €";
         }
     </script>
 </body>
