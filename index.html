@@ -1,435 +1,919 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Digital Pro | Soluções Web de Alta Performance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>NovaPixel | Soluções Web Profissionais para Empresas</title>
     <style>
-        :root {
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text: #334155;
-            --white: #ffffff;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@300;400;500;700&display=swap');
+
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2d5a8c;
+            --secondary: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --text-light: #888888;
+            --border: #e0e0e0;
+            --accent: #0066cc;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
-            overflow-x: hidden;
+            font-family: 'Lato', sans-serif;
+            background: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
         }
 
-        /* Header & Nav */
-        header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
+        /* Animações Sutis */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navbar */
         nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
-            max-width: 1300px;
-            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-decoration: none;
         }
 
         .logo img {
-            height: 65px; /* Aumentado como solicitado */
-            transition: transform 0.3s;
-        }
-
-        .logo img:hover {
-            transform: scale(1.05);
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-gray);
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
-        .btn-main {
-            background: var(--accent);
+        .cta-button {
+            background: var(--primary);
             color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-            transition: all 0.3s;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .btn-main:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        .cta-button:hover {
+            background: var(--primary-light);
         }
 
         /* Hero Section */
         .hero {
-            padding: 10rem 5% 6rem;
-            text-align: center;
-            background: radial-gradient(circle at top right, #e0e7ff, transparent), 
-                        radial-gradient(circle at bottom left, #f1f5f9, transparent);
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: #ffffff;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            color: var(--dark);
-            line-height: 1.1;
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
             margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            color: var(--text-dark);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: #64748b;
+        .hero-content h1 .highlight {
+            color: var(--accent);
         }
 
-        /* Banner Oferta */
-        .offer-banner {
-            background: var(--dark);
+        .hero-content p {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
             color: white;
-            padding: 1rem;
-            text-align: center;
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .offer-banner span {
-            color: #fbbf24;
-            text-transform: uppercase;
+        .btn-primary:hover {
+            background: var(--primary-light);
         }
 
-        /* Secções */
-        section {
-            padding: 6rem 5%;
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Seção de Benefícios */
+        .benefits {
+            padding: 4rem 2rem;
+            background: var(--secondary);
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .benefit-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-label {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Quem Somos */
+        .about {
+            padding: 5rem 2rem;
+            background: #ffffff;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        /* Portfólio & Iframe */
-        .portfolio-featured {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
-        }
-
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Aspect Ratio 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Domínios */
-        .domains-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .domain-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s;
-        }
-
-        .domain-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .domain-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.4rem;
             font-weight: 700;
-            font-size: 1.3rem;
-            display: block;
-            margin-bottom: 0.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
-        .domain-price {
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: 800;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1rem;
         }
 
-        /* Testemunhos */
-        .testimonials {
+        .about-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .test-card {
-            background: #fff;
+        .about-card {
             padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--accent);
+            border-radius: 6px;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
         }
 
-        .test-card p {
-            font-style: italic;
+        .about-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-icon {
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
-        .test-author {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--dark);
+        .about-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
         }
 
-        /* Orçamento */
-        .calc-container {
-            background: var(--white);
-            padding: 4rem;
-            border-radius: 24px;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-            max-width: 900px;
+        .about-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Seção Por Que Um Website */
+        .why-website {
+            padding: 5rem 2rem;
+            background: var(--secondary);
+        }
+
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .why-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .why-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .why-list li strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .why-list li span {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .why-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Seção de Gráficos */
+        .charts-section {
+            padding: 5rem 2rem;
+            background: #ffffff;
+        }
+
+        .charts-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .input-group {
-            margin-bottom: 2rem;
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        select {
+        .chart-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .chart-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .chart-image {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: #f1f5f9;
-            transition: border-color 0.3s;
+            height: auto;
+            border-radius: 6px;
         }
 
-        select:focus {
-            outline: none;
-            border-color: var(--accent);
+        /* Seção SEO */
+        .seo-section {
+            padding: 5rem 2rem;
+            background: var(--secondary);
         }
 
-        .price-tag {
-            background: var(--dark);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 16px;
+        .seo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .seo-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .seo-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .seo-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .seo-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .seo-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .seo-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .seo-list li strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .seo-list li span {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Projetos */
+        .projects {
+            padding: 5rem 2rem;
+            background: #ffffff;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            margin-bottom: 4rem;
+        }
+
+        .browser-frame {
+            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+            border-radius: 8px 8px 0 0;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ddd;
+            border-bottom: none;
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .browser-dot.red {
+            background: #ff5f56;
+        }
+
+        .browser-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .browser-dot.green {
+            background: #27c93f;
+        }
+
+        .browser-address {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 6px 12px;
+            margin-left: 12px;
+            flex-grow: 1;
+            font-size: 0.85rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+
+        .iframe-wrapper {
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            height: 500px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-info {
+            margin-top: 1.5rem;
             text-align: center;
         }
 
-        .price-value {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #60a5fa;
+        .project-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
         }
 
+        .project-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
         footer {
-            background: var(--dark);
-            color: #94a3b8;
-            padding: 4rem 5%;
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand img {
+            height: 32px;
+            width: auto;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
             text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .benefits-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .why-container {
+                grid-template-columns: 1fr;
+            }
+
+            .seo-container {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="offer-banner">
-        🔥 CAMPANHA DE VERÃO: AO CRIAR O SEU WEBSITE CONNOSCO, A <span>HOSPEDAGEM É 100% GRATUITA</span>
-    </div>
-
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="imagem_2026-04-18_173910294.png" alt="Logo Agência">
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel Logo">
+                <span>NovaPixel</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#dominios">Domínios</a></li>
-                <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#por-que">Por Que Um Website</a></li>
+                <li><a href="#seo">Google SEO</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contacto" class="cta-button">Contactar</a></li>
             </ul>
-            <a href="#orcamento" class="btn-main">Pedir Orçamento</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <h1>Design que Converte,<br>Tecnologia que Escala.</h1>
-        <p>Não construímos apenas sites. Criamos motores de venda para o seu negócio com as tecnologias mais recentes do mercado.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center;">
-            <a href="#orcamento" class="btn-main">Começar agora</a>
-            <a href="#portfolio" class="btn-main" style="background: white; color: var(--dark); border: 1px solid #e2e8f0;">Ver Projetos</a>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Websites que <span class="highlight">geram resultados</span> para o seu negócio.</h1>
+            <p>Na NovaPixel, desenvolvemos soluções web profissionais que aumentam a sua visibilidade, credibilidade e conversões. Cada projeto é desenhado com precisão para o sucesso do seu negócio.</p>
+            <div class="hero-buttons">
+                <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                <a href="#quem-somos" class="btn-secondary">Saiba Mais</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="imagem_2026-04-18_175653154.png" alt="NovaPixel Hero">
         </div>
     </section>
 
-    <section id="portfolio">
-        <div class="section-title">
-            <h2>Projetos de Referência</h2>
-            <p>Veja a qualidade do nosso trabalho em tempo real.</p>
-        </div>
-        
-        <div class="portfolio-featured">
-            <h3 style="margin-bottom: 1.5rem;">Destaque: Dentamedi.pt</h3>
-            <div class="iframe-container">
-                <iframe src="https://dentamedi.pt" title="Dentamedi Portfolio"></iframe>
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="benefits-container">
+            <div class="benefit-item">
+                <div class="benefit-number">500+</div>
+                <div class="benefit-label">Websites Desenvolvidos</div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">* Pré-visualização interativa do website desenvolvido para o setor da saúde.</p>
-        </div>
-    </section>
-
-    <section id="dominios" style="background: #f1f5f9; max-width: 100%;">
-        <div class="section-title">
-            <h2>Registo de Domínios</h2>
-            <p>Preços competitivos com gestão técnica incluída.</p>
-        </div>
-        
-        <div class="domains-grid" style="max-width: 1200px; margin: 0 auto;">
-            <div class="domain-card">
-                <span class="domain-name">.pt</span>
-                <span class="domain-price">28,75 €</span>
+            <div class="benefit-item">
+                <div class="benefit-number">98%</div>
+                <div class="benefit-label">Satisfação de Clientes</div>
             </div>
-            <div class="domain-card">
-                <span class="domain-name">.com</span>
-                <span class="domain-price">20,69 €</span>
+            <div class="benefit-item">
+                <div class="benefit-number">3x</div>
+                <div class="benefit-label">Crescimento Médio de Vendas</div>
             </div>
-            <div class="domain-card">
-                <span class="domain-name">.tech</span>
-                <span class="domain-price">8,04 €</span>
-            </div>
-            <div class="domain-card">
-                <span class="domain-name">.info</span>
-                <span class="domain-price">3,74 €</span>
-            </div>
-            <div class="domain-card">
-                <span class="domain-name">.cloud</span>
-                <span class="domain-price">2,49 €</span>
-            </div>
-            <div class="domain-card">
-                <span class="domain-name">.store</span>
-                <span class="domain-price">1,24 €</span>
+            <div class="benefit-item">
+                <div class="benefit-number">24/7</div>
+                <div class="benefit-label">Suporte Técnico</div>
             </div>
         </div>
     </section>
 
-    <section id="clientes">
-        <div class="section-title">
-            <h2>O que dizem os nossos clientes</h2>
-        </div>
-        <div class="testimonials">
-            <div class="test-card">
-                <p>"O aumento de leads foi imediato após o lançamento do novo site. Profissionalismo impecável."</p>
-                <div class="test-author">— Dr. Ricardo Silva, Dentamedi</div>
+    <!-- Quem Somos -->
+    <section id="quem-somos" class="about">
+        <h2 class="section-title">Quem Somos</h2>
+        <p class="section-subtitle">Especialistas em criar soluções web que transformam negócios</p>
+        <div class="about-container">
+            <div class="about-card">
+                <div class="about-icon">🔧</div>
+                <h3>Desenvolvimento Robusto</h3>
+                <p>Utilizamos as melhores tecnologias e práticas de desenvolvimento para garantir websites rápidos, seguros e escaláveis que crescem com o seu negócio.</p>
             </div>
-            <div class="test-card">
-                <p>"A oferta da hospedagem gratuita foi o que me convenceu, mas a qualidade do design superou as expetativas."</p>
-                <div class="test-author">— Maria João, Boutique Trendy</div>
+            <div class="about-card">
+                <div class="about-icon">🎯</div>
+                <h3>Design Estratégico</h3>
+                <p>Cada elemento é pensado com propósito. Criamos interfaces que guiam o utilizador para a ação desejada, maximizando conversões e experiência.</p>
             </div>
-            <div class="test-card">
-                <p>"Processo rápido, transparente e um resultado final extremamente moderno."</p>
-                <div class="test-author">— Eng. Carlos Santos, TechSolutions</div>
+            <div class="about-card">
+                <div class="about-icon">📊</div>
+                <h3>Foco em Resultados</h3>
+                <p>Medimos, analisamos e otimizamos continuamente. O seu website é uma ferramenta de negócio, não apenas uma presença digital.</p>
             </div>
         </div>
     </section>
 
-    <section id="orcamento">
-        <div class="calc-container">
-            <div class="section-title">
-                <h2>Simulador de Projeto</h2>
-                <p>Selecione as opções e obtenha um valor imediato.</p>
+    <!-- Por Que Um Website -->
+    <section id="por-que" class="why-website">
+        <div class="why-container">
+            <div class="why-content">
+                <h2>Por que é essencial ter um website profissional?</h2>
+                <ul class="why-list">
+                    <li>
+                        <strong>Credibilidade e Confiança</strong>
+                        <span>72% dos consumidores avaliam a credibilidade de uma empresa pela qualidade do seu website. Uma presença profissional é o seu primeiro argumento de venda.</span>
+                    </li>
+                    <li>
+                        <strong>Disponibilidade Permanente</strong>
+                        <span>Seu website trabalha 24 horas por dia. Enquanto você dorme, ele está a captar clientes, responder perguntas e gerar oportunidades de negócio.</span>
+                    </li>
+                    <li>
+                        <strong>Alcance Geográfico Ilimitado</strong>
+                        <span>Expanda o seu mercado para além das limitações físicas. Chegue a clientes em qualquer lugar do mundo através de uma plataforma digital estratégica.</span>
+                    </li>
+                    <li>
+                        <strong>Vantagem Competitiva</strong>
+                        <span>Se os seus concorrentes têm website e você não, está a perder clientes todos os dias. Destaque-se com uma presença digital moderna e profissional.</span>
+                    </li>
+                </ul>
             </div>
+            <div class="why-image">
+                <img src="imagem_2026-04-23_151322576.png" alt="Presença Online">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gráficos e Dados -->
+    <section class="charts-section">
+        <div class="charts-container">
+            <h2 class="section-title">Dados que Comprovam o Impacto</h2>
+            <p class="section-subtitle">Estatísticas que demonstram o valor real de um website profissional</p>
             
-            <div class="input-group">
-                <label style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Área de Negócio</label>
-                <select>
-                    <option>Saúde e Bem-Estar</option>
-                    <option>E-commerce / Vendas</option>
-                    <option>Imobiliária</option>
-                    <option>Serviços Profissionais</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Estrutura do Website</label>
-                <select id="paginas" onchange="atualizarPreco()">
-                    <option value="0">Escolha a dimensão...</option>
-                    <option value="75">Landing Page (1 Página) - 75€</option>
-                    <option value="119">Site Institucional (2-4 Páginas) - 119€</option>
-                    <option value="139">Portal Completo (5+ Páginas) - 139€</option>
-                </select>
-            </div>
-
-            <div class="price-tag">
-                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; color: #94a3b8;">Investimento Estimado</p>
-                <div class="price-value" id="total">0 €</div>
-                <p style="margin-top: 1rem; color: #fbbf24;">+ Hospedagem GRÁTIS Incluída</p>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Crescimento de Visibilidade Online</h3>
+                    <img src="imagem_2026-04-23_152656127.png" alt="Gráfico de Crescimento" class="chart-image">
+                </div>
+                <div class="chart-card">
+                    <h3>Impacto na Conversão de Clientes</h3>
+                    <div style="padding: 2rem; background: white; border-radius: 4px; text-align: center;">
+                        <p style="font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">+250%</p>
+                        <p style="color: var(--text-gray);">Aumento médio de conversões no primeiro ano</p>
+                        <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+                        <p style="font-size: 1rem; color: var(--text-gray); line-height: 1.6;">Empresas com website profissional aumentam as suas conversões em média 250% comparativamente àquelas sem presença digital otimizada.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Agência Digital Pro. Qualidade e Rigor na Construção do seu Futuro Online.</p>
+    <!-- Seção SEO -->
+    <section id="seo" class="seo-section">
+        <div class="seo-container">
+            <div class="seo-image">
+                <img src="imagem_2026-04-23_152656127.png" alt="Google SEO">
+            </div>
+            <div class="seo-content">
+                <h2>O que é Google SEO?</h2>
+                <p>SEO (Search Engine Optimization) é o conjunto de técnicas e estratégias utilizadas para melhorar a visibilidade do seu website nos resultados de busca do Google e outros motores de pesquisa. Em termos simples, é fazer com que o seu site apareça nos primeiros resultados quando alguém procura pelos serviços ou produtos que você oferece.</p>
+                
+                <p>Quando um cliente em potencial procura "websites profissionais em Lisboa" ou "agência web", o Google utiliza centenas de fatores para decidir qual website aparece primeiro. Um website com boa estratégia SEO terá muito mais probabilidade de estar nessas primeiras posições — onde a maioria dos cliques acontecem.</p>
+
+                <p><strong>Por que é importante?</strong> Porque 93% das experiências online começam com um motor de busca. Se o seu website não aparecer nos primeiros resultados, está a perder clientes para a concorrência. Um bom SEO não é apenas sobre aparecer — é sobre aparecer para as pessoas certas, no momento certo.</p>
+
+                <ul class="seo-list">
+                    <li>
+                        <strong>Palavras-Chave Estratégicas</strong>
+                        <span>Identificamos e otimizamos o seu website para as palavras-chave que o seu público-alvo realmente procura.</span>
+                    </li>
+                    <li>
+                        <strong>Conteúdo de Qualidade</strong>
+                        <span>Criamos conteúdo relevante e valioso que responde às perguntas dos seus clientes e melhora o ranking.</span>
+                    </li>
+                    <li>
+                        <strong>Otimização Técnica</strong>
+                        <span>Garantimos que o seu website tem uma estrutura técnica sólida, velocidade de carregamento otimizada e é facilmente indexável pelo Google.</span>
+                    </li>
+                    <li>
+                        <strong>Autoridade e Backlinks</strong>
+                        <span>Desenvolvemos uma estratégia de links que aumenta a autoridade do seu website aos olhos do Google.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="projects">
+        <div class="projects-container">
+            <h2 class="section-title">Projetos de Sucesso</h2>
+            <p class="section-subtitle">Websites que geraram resultados reais para os nossos clientes</p>
+
+            <!-- Projeto 1 -->
+            <div class="project-item">
+                <div class="browser-frame">
+                    <span class="browser-dot red"></span>
+                    <span class="browser-dot yellow"></span>
+                    <span class="browser-dot green"></span>
+                    <div class="browser-address">https://pastelaria-artesanal.pt</div>
+                </div>
+                <div class="iframe-wrapper">
+                    <iframe src="https://phythecreator.github.io/pastelaria/"></iframe>
+                </div>
+                <div class="project-info">
+                    <h3>Pastelaria Artesanal</h3>
+                    <p>Website responsivo e otimizado para conversão. Resultado: +180% de contactos online, +45% de vendas diretas.</p>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="project-item">
+                <div class="browser-frame">
+                    <span class="browser-dot red"></span>
+                    <span class="browser-dot yellow"></span>
+                    <span class="browser-dot green"></span>
+                    <div class="browser-address">https://pantera-negra-agency.pt</div>
+                </div>
+                <div class="iframe-wrapper">
+                    <iframe src="https://phythecreator.github.io/panteranegra/"></iframe>
+                </div>
+                <div class="project-info">
+                    <h3>Pantera Negra</h3>
+                    <p>Plataforma digital com design moderno e performance otimizada. Resultado: +220% de leads qualificados, +35% de taxa de conversão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand">
+                    <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel Logo">
+                    <span>NovaPixel</span>
+                </div>
+                <p class="footer-text">Especialistas em criar websites que geram resultados. Transformamos ideias em soluções digitais estratégicas que impulsionam o crescimento do seu negócio.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#por-que">Por Que Um Website</a></li>
+                    <li><a href="#seo">Google SEO</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@novapixel.pt">info@novapixel.pt</a></li>
+                    <li><a href="tel:+351900000000">+351 900 000 000</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 NovaPixel. Todos os direitos reservados.
+        </div>
     </footer>
 
-    <script>
-        function atualizarPreco() {
-            const val = document.getElementById('paginas').value;
-            document.getElementById('total').innerText = val + " €";
-        }
-    </script>
 </body>
 </html>
