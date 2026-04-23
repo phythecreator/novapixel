@@ -3,261 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPixel | Excelência em Presença Digital</title>
+    <meta name="description" content="NovaPixel - Criação de websites de alta performance e autoridade digital.">
+    <title>NovaPixel | Autoridade Digital e Resultados Reais</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* ========================================
+           SISTEMA DE DESIGN & VARIÁVEIS
+           ========================================
+        */
         :root {
-            --primary: #1a365d;
-            --accent: #2b6cb0;
-            --light-blue: #ebf8ff;
-            --text-main: #2d3748;
-            --text-muted: #718096;
+            --primary: #1a365d;        /* Azul Corporativo Sóbrio */
+            --accent: #2b6cb0;         /* Azul de Ação */
+            --bg-light: #f8fafc;       /* Fundo quase branco para conforto visual */
+            --text-dark: #1e293b;      /* Texto principal (quase preto) */
+            --text-gray: #475569;      /* Texto secundário */
             --white: #ffffff;
-            --border: #edf2f7;
-            --success: #38a169;
-            --danger: #e53e3e;
+            --success: #059669;        /* Verde para o "Com Website" */
+            --danger: #dc2626;         /* Vermelho para o "Sem Website" */
+            --border: #e2e8f0;         /* Cor de bordas suaves */
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-main); line-height: 1.8; background: var(--white); }
+        /* RESET GERAL */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--white); 
+            color: var(--text-dark); 
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* --- NAVEGAÇÃO --- */
+        /* ========================================
+           LAYOUT RESPONSIVO & GERAL
+           ========================================
+        */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 100px 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        .flex { display: flex; align-items: center; gap: 2rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+        /* ========================================
+           NAVEGAÇÃO (CLEAN)
+           ========================================
+        */
         nav {
             position: fixed;
-            top: 0; width: 100%; z-index: 1000;
+            top: 0; width: 100%; z-index: 2000;
             background: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid var(--border);
             padding: 1rem 0;
+            transition: var(--transition);
         }
-        .nav-container {
-            max-width: 1400px; margin: 0 auto; padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; } /* Logótipo minimalista como imagem */
+        
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: var(--transition);
+            opacity: 0.8;
         }
-        .nav-logo img { height: 45px; }
-        .nav-links { display: flex; gap: 3rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* --- HERO (MAIOR E MAIS FORTE) --- */
-        .hero {
-            padding: 12rem 2rem 8rem;
-            max-width: 1400px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        /* Botão de Orçamento na Nav */
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.85rem !important;
         }
-        .hero-content h1 { font-size: 4rem; font-weight: 800; color: var(--primary); line-height: 1.1; margin-bottom: 2rem; }
-        .hero-content p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; }
-        .hero-image img { width: 100%; border-radius: 20px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); }
 
-        /* --- SLIDER DE ATIVOS --- */
-        .opt-slider { padding: 5rem 0; background: var(--white); overflow: hidden; border-bottom: 1px solid var(--border); }
-        .opt-track { display: flex; width: calc(200px * 20); animation: scroll 35s linear infinite; }
-        .opt-item { width: 200px; padding: 0 30px; display: flex; align-items: center; }
-        .opt-item img { max-height: 45px; filter: grayscale(1); opacity: 0.5; transition: 0.4s; }
-        .opt-item:hover img { filter: grayscale(0); opacity: 1; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 10)); } }
-
-        /* --- COMPARAÇÃO: COM VS SEM WEBSITE --- */
-        .comparison { padding: 8rem 2rem; background: var(--light-blue); }
-        .comp-container { max-width: 1000px; margin: 0 auto; }
-        .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: 15px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .comp-card { background: var(--white); padding: 3rem; }
-        .comp-card h3 { margin-bottom: 2rem; font-size: 1.5rem; }
-        .comp-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; font-weight: 500; }
-        .check { color: var(--success); font-weight: bold; }
-        .cross { color: var(--danger); font-weight: bold; }
-
-        /* --- SEO SECTION (ORGANIZADO) --- */
-        .seo-section { padding: 10rem 2rem; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
-        .seo-content h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 2rem; }
-        .seo-steps { list-style: none; }
-        .seo-step { margin-bottom: 2.5rem; padding-left: 2rem; border-left: 3px solid var(--accent); }
-        .seo-step h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .seo-image img { width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-
-        /* --- PORTFOLIO --- */
-        .projects { padding: 8rem 2rem; background: #fafafa; }
-        .browser-frame { background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 5rem; box-shadow: 0 40px 80px rgba(0,0,0,0.06); }
-        .browser-header { background: #f1f3f4; padding: 12px 20px; display: flex; align-items: center; }
-        .address-bar { background: white; flex-grow: 1; margin-left: 20px; padding: 5px 15px; border-radius: 5px; font-size: 0.85rem; color: var(--text-muted); border: 1px solid #e2e8f0; }
-        .iframe-container { height: 600px; }
-        iframe { width: 100%; height: 100%; border: none; }
-
-        /* --- FAQ --- */
-        .faq { padding: 8rem 2rem; max-width: 800px; margin: 0 auto; }
-        .faq h2 { text-align: center; margin-bottom: 4rem; font-size: 2.5rem; color: var(--primary); }
-        .faq-item { margin-bottom: 1.5rem; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: 0.3s; }
-        .faq-item:hover { border-color: var(--accent); }
-        .faq-item h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .faq-item p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--primary); color: white; padding: 6rem 2rem 3rem; }
-        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
-        .footer-logo img { height: 50px; margin-bottom: 2rem; }
-
-        @media (max-width: 1000px) {
-            .hero, .seo-section, .footer-grid, .comp-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.8rem; }
+        /* ========================================
+           HERO SECTION (CONVENCER LOGO NO INÍCIO)
+           ========================================
+        */
+        .hero { 
+            padding: 160px 0 100px; 
+            background: radial-gradient(circle at 100% 0%, #edf2f7 0%, #ffffff 40%);
         }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        /* ========================================
+           SLIDER INFINITO (OS 10 ATIVOS)
+           ========================================
+        */
+        .slider-box { 
+            background: var(--bg-light); 
+            padding: 60px 0; 
+            border-top: 1px solid var(--border); 
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+        }
+        .slider-intro { text-align: center; margin-bottom: 40px; }
+        .slider-intro h3 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); }
+
+        .slider-container { display: flex; width: calc(250px * 20); animation: slideInfinite 40s linear infinite; }
+        .slide { width: 250px; display: flex; align-items: center; justify-content: center; padding: 0 40px; }
+        .slide img { 
+            max-height: 60px; 
+            filter: grayscale(100%); 
+            opacity: 0.4; 
+            transition: var(--transition); 
+        }
+        .slide:hover img { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
+
+        @keyframes slideInfinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 10)); }
+        }
+
+        /* ========================================
+           PORQUÊ TER UM WEBSITE? (TEXTO HUMANO)
+           ========================================
+        */
+        .importance { background: white; }
+        .content-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .content-header h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .content-header p { color: var(--text-gray); font-size: 1.1rem; }
+
+        .benefit-card { padding: 2rem; border: 1px solid var(--border); border-radius: 12px; transition: var(--transition); }
+        .benefit-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .benefit-card h4 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); }
+
+        /* ========================================
+           TABELA DE COMPARAÇÃO (MATADOR)
+           ========================================
+        */
+        .comparison-table { background: var(--bg-light); }
+        .comp-wrapper { 
+            background: var(--white); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .comp-side { padding: 4rem; }
+        .comp-no { border-right: 1px solid var(--border); }
+        .comp-side h3 { margin-bottom: 2rem; font-size: 1.8rem; }
+        .comp-list { list-style: none; }
+        .comp-list li { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 1rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 500; 
+        }
+        .icon-no { color: var(--danger); font-weight: 800; font-size: 1.2rem; }
+        .icon-yes { color: var(--success); font-weight: 800; font-size: 1.2rem; }
+
+        /* ========================================
+           GOOGLE SEO (O QUE É?)
+           ========================================
+        */
+        .seo-box { background: white; }
+        .seo-image img { border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .seo-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .seo-text p { margin-bottom: 1.5rem; color: var(--text-gray); }
+        
+        .seo-highlight { 
+            background: #f1f5f9; 
+            padding: 1.5rem; 
+            border-left: 4px solid var(--accent); 
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* ========================================
+           PORTFÓLIO (BROWSER STYLE)
+           ========================================
+        */
+        .portfolio { background: var(--bg-light); }
+        .browser-window {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+        }
+        .browser-bar {
+            background: #f1f3f4;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .url-bar {
+            background: white;
+            flex-grow: 1;
+            margin-left: 20px;
+            padding: 4px 15px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #5f6368;
+            border: 1px solid #ddd;
+        }
+        .browser-content { height: 600px; }
+        .browser-content iframe { width: 100%; height: 100%; border: none; }
+
+        /* ========================================
+           FAQ (DÚVIDAS HUMANAS)
+           ========================================
+        */
+        .faq { max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); padding: 2rem 0; }
+        .faq-item h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.8rem; cursor: pointer; }
+        .faq-item p { color: var(--text-gray); font-size: 1rem; }
+
+        /* ========================================
+           FOOTER
+           ========================================
+        */
+        footer { background: var(--primary); color: var(--white); padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 60px; }
+        .footer-logo img { height: 45px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
+        .footer-col h4 { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .footer-col p, .footer-col a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; margin-bottom: 0.5rem; display: block; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; font-size: 0.8rem; color: #94a3b8; }
+
+        /* ========================================
+           RESPONSIVIDADE (TABLET & MOBILE)
+           ========================================
+        */
+        @media (max-width: 1024px) {
+            .grid-2 { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .comp-wrapper { grid-template-columns: 1fr; }
+            .comp-no { border-right: none; border-bottom: 1px solid var(--border); }
+            .hero-text h1 { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* No mobile simplificamos */
+            .grid-3 { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.5rem; }
+            section { padding: 60px 0; }
+            .comp-side { padding: 2rem; }
+            .browser-content { height: 400px; }
+        }
+
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo"><img src="imagem_2026-04-18_173910294.png" alt="NovaPixel"></a>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel">
+            </a>
             <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#comparacao">Impacto</a></li>
-                <li><a href="#seo">SEO</a></li>
+                <li><a href="#sobre">Porquê Nós</a></li>
+                <li><a href="#seo">O que é SEO</a></li>
                 <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#faq">Dúvidas</a></li>
+                <li><a href="mailto:geral@novapixel.pt" class="nav-cta">Pedir Orçamento</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Websites que geram resultados para o seu negócio.</h1>
-            <p>Não construímos apenas sites. Criamos ativos digitais de alta performance que posicionam a sua marca como líder de mercado.</p>
-            <a href="#projetos" style="display:inline-block; background: var(--primary); color: white; padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; box-shadow: 0 15px 30px rgba(26, 54, 93, 0.2);">Ver Portfólio de Luxo</a>
-        </div>
-        <div class="hero-image">
-            <img src="imagem_2026-04-18_175653154.png" alt="Digital Strategy">
+    <section class="hero" id="inicio">
+        <div class="container grid-2">
+            <div class="hero-text">
+                <h1>Websites que geram resultados para o seu negócio.</h1>
+                <p>Ter um site não é apenas ter uma página na internet. É ter uma máquina de vendas, autoridade e confiança que trabalha para si 24 horas por dia.</p>
+                <div class="flex" style="justify-content: flex-start;">
+                    <a href="#projetos" style="background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700;">Ver Portfólio</a>
+                    <a href="#sobre" style="color: var(--primary); font-weight: 700; text-decoration: none;">Saiba mais →</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="imagem_2026-04-18_175653154.png" alt="Estratégia Digital NovaPixel">
+            </div>
         </div>
     </section>
 
-    <div class="opt-slider">
-        <div class="opt-track">
-            <div class="opt-item"><img src="imagem_2026-04-23_154409336.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154433147.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154732746.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154817425.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154902843.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154931883.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_155040554.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_155212834.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_155427115.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_155455016.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154409336.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154433147.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154732746.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154817425.png"></div>
-            <div class="opt-item"><img src="imagem_2026-04-23_154902843.png"></div>
+    <div class="slider-box">
+        <div class="slider-intro">
+            <h3>O nosso serviço é otimizado para:</h3>
+        </div>
+        <div class="slider-container">
+            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154931883.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155040554.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155212834.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155427115.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155455016.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
         </div>
     </div>
 
-    <section id="comparacao" class="comparison">
-        <div class="comp-container">
-            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 4rem;">O Custo da Invisibilidade</h2>
-            <div class="comp-grid">
-                <div class="comp-card">
+    <section id="sobre" class="importance">
+        <div class="container">
+            <div class="content-header">
+                <h2>Porquê a sua empresa precisa de um site em 2026?</h2>
+                <p>No final do dia, as pessoas não compram apenas produtos; elas compram confiança. Se o seu negócio não aparece no digital com profissionalismo, ele está a ceder espaço à concorrência.</p>
+            </div>
+            <div class="grid-3">
+                <div class="benefit-card">
+                    <h4>Credibilidade Instantânea</h4>
+                    <p>Um site profissional diz ao mundo que a sua empresa é séria e estável. É o seu cartão de visita que nunca dorme.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Alcance Sem Limites</h4>
+                    <p>O seu negócio deixa de estar preso à rua ou cidade onde está. Pode ser encontrado por qualquer pessoa, em qualquer lugar.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Controlo da Mensagem</h4>
+                    <p>Nas redes sociais, você é um "inquilino". No seu site, você é o dono. Você controla como o seu cliente vê a sua marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-table">
+        <div class="container">
+            <div class="content-header">
+                <h2>O Custo de não ter um site profissional</h2>
+                <p>Compare a diferença entre estar "escondido" e estar posicionado como uma autoridade no mercado.</p>
+            </div>
+            <div class="comp-wrapper">
+                <div class="comp-side comp-no">
                     <h3 style="color: var(--danger);">Sem Website Profissional</h3>
-                    <div class="comp-item"><span class="cross">✕</span> Invisível para quem pesquisa no Google.</div>
-                    <div class="comp-item"><span class="cross">✕</span> Perda de credibilidade imediata.</div>
-                    <div class="comp-item"><span class="cross">✕</span> Dependente apenas das redes sociais.</div>
-                    <div class="comp-item"><span class="cross">✕</span> Atendimento limitado ao horário comercial.</div>
+                    <ul class="comp-list">
+                        <li><span class="icon-no">✕</span> Invisível para quem pesquisa no Google.</li>
+                        <li><span class="icon-no">✕</span> Dependência total de algoritmos de redes sociais.</li>
+                        <li><span class="icon-no">✕</span> O cliente tem dúvidas se o negócio ainda existe.</li>
+                        <li><span class="icon-no">✕</span> Sem forma de medir quem são os seus visitantes.</li>
+                    </ul>
                 </div>
-                <div class="comp-card">
-                    <h3 style="color: var(--success);">Com NovaPixel</h3>
-                    <div class="comp-item"><span class="check">✓</span> Autoridade Máxima 24 horas por dia.</div>
-                    <div class="comp-item"><span class="check">✓</span> Máquina de Vendas Automática.</div>
-                    <div class="comp-item"><span class="check">✓</span> Domínio e dados 100% sob seu controlo.</div>
-                    <div class="comp-item"><span class="check">✓</span> Expansão para novos mercados e cidades.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="seo" class="seo-section">
-        <div class="seo-image">
-            <img src="imagem_2026-04-23_152656127.png" alt="Explicação SEO">
-        </div>
-        <div class="seo-content">
-            <h2>Google SEO: A Ciência de Ser Encontrado</h2>
-            <div class="seo-steps">
-                <div class="seo-step">
-                    <h4>1. Indexação Estratégica</h4>
-                    <p>Ensinamos os robôs do Google a ler o seu site corretamente, garantindo que ele aparece nas pesquisas certas.</p>
-                </div>
-                <div class="seo-step">
-                    <h4>2. Autoridade Orgânica</h4>
-                    <p>Otimizamos o conteúdo para que o seu site ganhe relevância natural, reduzindo custos com anúncios pagos.</p>
-                </div>
-                <div class="seo-step">
-                    <h4>3. Conversão de Tráfego</h4>
-                    <p>Não basta visitas; é preciso que os utilizadores se tornem clientes. Focamos em SEO com foco em conversão.</p>
+                <div class="comp-side">
+                    <h3 style="color: var(--success);">Com a NovaPixel</h3>
+                    <ul class="comp-list">
+                        <li><span class="icon-yes">✓</span> Posicionamento no topo das buscas do Google.</li>
+                        <li><span class="icon-yes">✓</span> Autoridade e confiança imediata perante o cliente.</li>
+                        <li><span class="icon-yes">✓</span> Disponibilidade 24 horas para converter leads.</li>
+                        <li><span class="icon-yes">✓</span> Dados reais sobre o comportamento do seu público.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projetos" class="projects">
-        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 5rem;">Ecossistemas Digitais Realizados</h2>
-        <div class="browser-frame">
-            <div class="browser-header">
-                <div style="display:flex; gap:6px;"><span class="dot" style="background:#ff5f56; width:12px; height:12px; border-radius:50%"></span><span class="dot" style="background:#ffbd2e; width:12px; height:12px; border-radius:50%"></span><span class="dot" style="background:#27c93f; width:12px; height:12px; border-radius:50%"></span></div>
-                <div class="address-bar">https://pastelaria-artesanal.pt</div>
+    <section id="seo" class="seo-box">
+        <div class="container grid-2">
+            <div class="seo-image">
+                <img src="imagem_2026-04-23_152656127.png" alt="O que é Google SEO">
             </div>
-            <div class="iframe-container"><iframe src="https://phythecreator.github.io/pastelaria/"></iframe></div>
-        </div>
-
-        <div class="browser-frame">
-            <div class="browser-header">
-                <div style="display:flex; gap:6px;"><span class="dot" style="background:#ff5f56; width:12px; height:12px; border-radius:50%"></span><span class="dot" style="background:#ffbd2e; width:12px; height:12px; border-radius:50%"></span><span class="dot" style="background:#27c93f; width:12px; height:12px; border-radius:50%"></span></div>
-                <div class="address-bar">https://pantera-negra.pt</div>
+            <div class="seo-text">
+                <h2>Google SEO: A ciência de aparecer para quem quer comprar.</h2>
+                <p><strong>O que é?</strong> SEO significa <em>Search Engine Optimization</em>. Em português simples: é o conjunto de técnicas que aplicamos ao seu site para que o Google o entenda como a melhor resposta para uma pesquisa.</p>
+                <p>Imagine que alguém pesquisa por "melhor serviço em Portugal". Se o seu site for otimizado por nós, ele estará lá em cima, à frente de todos os outros.</p>
+                <div class="seo-highlight">
+                    "Ter um site sem SEO é como imprimir folhetos e guardá-los numa gaveta. Ninguém os vai ler."
+                </div>
             </div>
-            <div class="iframe-container"><iframe src="https://phythecreator.github.io/panteranegra/"></iframe></div>
         </div>
     </section>
 
-    <section id="faq" class="faq">
-        <h2>Perguntas Frequentes (FAQ)</h2>
-        <div class="faq-item">
-            <h4>Quanto tempo demora a entrega do website?</h4>
-            <p>O prazo médio para projetos de alta performance é de 15 a 30 dias, dependendo da complexidade das integrações.</p>
-        </div>
-        <div class="faq-item">
-            <h4>O website será otimizado para telemóveis?</h4>
-            <p>Sim. Todos os nossos projetos são Mobile-First, garantindo uma experiência impecável em qualquer dispositivo.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Terei acesso para editar o conteúdo do site?</h4>
-            <p>Sim. Entregamos o projeto com total autonomia para que possa gerir as informações básicas sem dependência técnica.</p>
-        </div>
-        <div class="faq-item">
-            <h4>Como funciona o pagamento?</h4>
-            <p>Trabalhamos com entrada de 50% e o restante na entrega final do projeto, após a sua aprovação total.</p>
+    <section id="projetos" class="portfolio">
+        <div class="container">
+            <div class="content-header">
+                <h2>Os Nossos Projetos</h2>
+                <p>Veja como transformamos ideias em interfaces de alta performance.</p>
+            </div>
+
+            <div class="browser-window">
+                <div class="browser-bar">
+                    <div class="dot" style="background: #ff5f56;"></div>
+                    <div class="dot" style="background: #ffbd2e;"></div>
+                    <div class="dot" style="background: #27c93f;"></div>
+                    <div class="url-bar">https://phythecreator.github.io/pastelaria/</div>
+                </div>
+                <div class="browser-content">
+                    <iframe src="https://phythecreator.github.io/pastelaria/"></iframe>
+                </div>
+            </div>
+
+            <div class="browser-window">
+                <div class="browser-bar">
+                    <div class="dot" style="background: #ff5f56;"></div>
+                    <div class="dot" style="background: #ffbd2e;"></div>
+                    <div class="dot" style="background: #27c93f;"></div>
+                    <div class="url-bar">https://phythecreator.github.io/panteranegra/</div>
+                </div>
+                <div class="browser-content">
+                    <iframe src="https://phythecreator.github.io/panteranegra/"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer id="contacto">
-        <div class="footer-grid">
-            <div>
-                <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel" style="height: 50px;">
-                <p style="color: #cbd5e0; margin-top: 1rem;">Lideramos a transformação digital de negócios que não aceitam o comum.</p>
+    <section id="faq" class="container">
+        <div class="content-header">
+            <h2>Dúvidas Frequentes</h2>
+            <p>Esclareça os pontos principais sobre o nosso processo de trabalho.</p>
+        </div>
+        <div class="faq">
+            <div class="faq-item">
+                <h4>O site funciona bem em telemóveis?</h4>
+                <p>Sim. Hoje, mais de 70% das pessoas acedem via mobile. Criamos sites que se adaptam perfeitamente a qualquer ecrã (PC, Tablet ou Smartphone).</p>
             </div>
-            <div class="footer-links">
-                <h4>Empresa</h4>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#comparacao">Vantagens</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                </ul>
+            <div class="faq-item">
+                <h4>Quanto tempo demora a entrega?</h4>
+                <p>O prazo varia entre 15 a 30 dias úteis, garantindo que cada detalhe de SEO e design é testado antes do lançamento.</p>
             </div>
-            <div class="footer-links">
-                <h4>Contactos</h4>
-                <ul>
-                    <li><a href="mailto:geral@novapixel.pt">geral@novapixel.pt</a></li>
-                    <li><a href="tel:+351912345678">+351 912 345 678</a></li>
-                </ul>
+            <div class="faq-item">
+                <h4>O que preciso de fornecer para começar?</h4>
+                <p>Apenas informações básicas sobre o seu negócio e objetivos. Nós tratamos de toda a estrutura técnica, textos e otimização.</p>
             </div>
         </div>
-        <div style="text-align: center; padding-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; font-size: 0.8rem; color: #a0aec0;">
-            &copy; 2026 NovaPixel. Engineering Authority in Digital Presence.
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel">
+                    <p>Elevamos o padrão digital do seu negócio através de engenharia e design de autoridade.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <a href="#sobre">Vantagens</a>
+                    <a href="#seo">Google SEO</a>
+                    <a href="#projetos">Portefólio</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contactos</h4>
+                    <p>Email: geral@novapixel.pt</p>
+                    <p>Tel: +351 900 000 000</p>
+                    <p>Horário: Seg - Sex | 09h - 18h</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 NovaPixel. Todos os direitos reservados. Design e Desenvolvimento de Alta Performance.
+            </div>
         </div>
     </footer>
 
