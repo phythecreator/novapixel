@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPixel | Soluções Web Profissionais para Empresas</title>
+    <title>NovaPixel | Soluções Web Profissionais</title>
     <style>
         * {
             margin: 0;
@@ -35,27 +35,6 @@
             line-height: 1.6;
         }
 
-        /* Animações Sutis */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Navbar */
         nav {
             position: fixed;
@@ -70,7 +49,7 @@
         .navbar-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,15 +58,11 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--primary);
             text-decoration: none;
         }
 
         .logo img {
-            height: 40px;
+            height: 45px;
             width: auto;
         }
 
@@ -205,37 +180,53 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Seção de Benefícios */
-        .benefits {
-            padding: 4rem 2rem;
+        /* Otimizações Section */
+        .optimizations {
+            padding: 5rem 2rem;
             background: var(--secondary);
         }
 
-        .benefits-container {
+        .optimizations-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .optimizations-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .optimizations-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 2rem;
         }
 
-        .benefit-item {
+        .optimization-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
             text-align: center;
-            padding: 2rem;
+            transition: box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .benefit-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+        .optimization-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        .benefit-label {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            font-weight: 500;
+        .optimization-image {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
         }
 
         /* Quem Somos */
@@ -299,7 +290,7 @@
             font-size: 0.95rem;
         }
 
-        /* Seção Por Que Um Website */
+        /* Por Que Um Website */
         .why-website {
             padding: 5rem 2rem;
             background: var(--secondary);
@@ -359,49 +350,10 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        /* Seção de Gráficos */
-        .charts-section {
-            padding: 5rem 2rem;
-            background: #ffffff;
-        }
-
-        .charts-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .chart-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .chart-card {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .chart-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .chart-image {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
-
         /* Seção SEO */
         .seo-section {
             padding: 5rem 2rem;
-            background: var(--secondary);
+            background: #ffffff;
         }
 
         .seo-container {
@@ -469,7 +421,7 @@
         /* Projetos */
         .projects {
             padding: 5rem 2rem;
-            background: #ffffff;
+            background: var(--secondary);
         }
 
         .projects-container {
@@ -639,7 +591,7 @@
                 font-size: 2rem;
             }
 
-            .benefits-container {
+            .optimizations-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
             }
@@ -653,10 +605,6 @@
             }
 
             .seo-container {
-                grid-template-columns: 1fr;
-            }
-
-            .chart-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -677,7 +625,6 @@
         <div class="navbar-container">
             <a href="#" class="logo">
                 <img src="imagem_2026-04-18_173910294.png" alt="NovaPixel Logo">
-                <span>NovaPixel</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
@@ -705,24 +652,41 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="benefits-container">
-            <div class="benefit-item">
-                <div class="benefit-number">500+</div>
-                <div class="benefit-label">Websites Desenvolvidos</div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">98%</div>
-                <div class="benefit-label">Satisfação de Clientes</div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">3x</div>
-                <div class="benefit-label">Crescimento Médio de Vendas</div>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-number">24/7</div>
-                <div class="benefit-label">Suporte Técnico</div>
+    <!-- Otimizações Section -->
+    <section class="optimizations">
+        <div class="optimizations-container">
+            <h2 class="optimizations-title">O nosso serviço é otimizado para:</h2>
+            <div class="optimizations-grid">
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154409336.png" alt="Otimização 1" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154433147.png" alt="Otimização 2" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154732746.png" alt="Otimização 3" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154817425.png" alt="Otimização 4" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154902843.png" alt="Otimização 5" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_154931883.png" alt="Otimização 6" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_155040554.png" alt="Otimização 7" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_155212834.png" alt="Otimização 8" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_155427115.png" alt="Otimização 9" class="optimization-image">
+                </div>
+                <div class="optimization-item">
+                    <img src="imagem_2026-04-23_155455016.png" alt="Otimização 10" class="optimization-image">
+                </div>
             </div>
         </div>
     </section>
@@ -735,17 +699,17 @@
             <div class="about-card">
                 <div class="about-icon">🔧</div>
                 <h3>Desenvolvimento Robusto</h3>
-                <p>Utilizamos as melhores tecnologias e práticas de desenvolvimento para garantir websites rápidos, seguros e escaláveis que crescem com o seu negócio.</p>
+                <p>Utilizamos as melhores tecnologias e práticas de desenvolvimento para garantir websites rápidos, seguros e escaláveis.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">🎯</div>
                 <h3>Design Estratégico</h3>
-                <p>Cada elemento é pensado com propósito. Criamos interfaces que guiam o utilizador para a ação desejada, maximizando conversões e experiência.</p>
+                <p>Cada elemento é pensado com propósito. Criamos interfaces que guiam o utilizador para a ação desejada.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">📊</div>
                 <h3>Foco em Resultados</h3>
-                <p>Medimos, analisamos e otimizamos continuamente. O seu website é uma ferramenta de negócio, não apenas uma presença digital.</p>
+                <p>Medimos, analisamos e otimizamos continuamente. O seu website é uma ferramenta de negócio.</p>
             </div>
         </div>
     </section>
@@ -758,48 +722,24 @@
                 <ul class="why-list">
                     <li>
                         <strong>Credibilidade e Confiança</strong>
-                        <span>72% dos consumidores avaliam a credibilidade de uma empresa pela qualidade do seu website. Uma presença profissional é o seu primeiro argumento de venda.</span>
+                        <span>72% dos consumidores avaliam a credibilidade pela qualidade do website. Uma presença profissional é o seu primeiro argumento de venda.</span>
                     </li>
                     <li>
                         <strong>Disponibilidade Permanente</strong>
-                        <span>Seu website trabalha 24 horas por dia. Enquanto você dorme, ele está a captar clientes, responder perguntas e gerar oportunidades de negócio.</span>
+                        <span>Seu website trabalha 24 horas por dia. Enquanto você dorme, está a captar clientes e gerar oportunidades.</span>
                     </li>
                     <li>
                         <strong>Alcance Geográfico Ilimitado</strong>
-                        <span>Expanda o seu mercado para além das limitações físicas. Chegue a clientes em qualquer lugar do mundo através de uma plataforma digital estratégica.</span>
+                        <span>Expanda o seu mercado para além das limitações físicas. Chegue a clientes em qualquer lugar do mundo.</span>
                     </li>
                     <li>
                         <strong>Vantagem Competitiva</strong>
-                        <span>Se os seus concorrentes têm website e você não, está a perder clientes todos os dias. Destaque-se com uma presença digital moderna e profissional.</span>
+                        <span>Se os seus concorrentes têm website e você não, está a perder clientes todos os dias.</span>
                     </li>
                 </ul>
             </div>
             <div class="why-image">
                 <img src="imagem_2026-04-23_151322576.png" alt="Presença Online">
-            </div>
-        </div>
-    </section>
-
-    <!-- Gráficos e Dados -->
-    <section class="charts-section">
-        <div class="charts-container">
-            <h2 class="section-title">Dados que Comprovam o Impacto</h2>
-            <p class="section-subtitle">Estatísticas que demonstram o valor real de um website profissional</p>
-            
-            <div class="chart-grid">
-                <div class="chart-card">
-                    <h3>Crescimento de Visibilidade Online</h3>
-                    <img src="imagem_2026-04-23_152656127.png" alt="Gráfico de Crescimento" class="chart-image">
-                </div>
-                <div class="chart-card">
-                    <h3>Impacto na Conversão de Clientes</h3>
-                    <div style="padding: 2rem; background: white; border-radius: 4px; text-align: center;">
-                        <p style="font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">+250%</p>
-                        <p style="color: var(--text-gray);">Aumento médio de conversões no primeiro ano</p>
-                        <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
-                        <p style="font-size: 1rem; color: var(--text-gray); line-height: 1.6;">Empresas com website profissional aumentam as suas conversões em média 250% comparativamente àquelas sem presença digital otimizada.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -812,11 +752,11 @@
             </div>
             <div class="seo-content">
                 <h2>O que é Google SEO?</h2>
-                <p>SEO (Search Engine Optimization) é o conjunto de técnicas e estratégias utilizadas para melhorar a visibilidade do seu website nos resultados de busca do Google e outros motores de pesquisa. Em termos simples, é fazer com que o seu site apareça nos primeiros resultados quando alguém procura pelos serviços ou produtos que você oferece.</p>
+                <p>SEO (Search Engine Optimization) é o conjunto de técnicas e estratégias utilizadas para melhorar a visibilidade do seu website nos resultados de busca do Google. Em termos simples, é fazer com que o seu site apareça nos primeiros resultados quando alguém procura pelos serviços que você oferece.</p>
                 
-                <p>Quando um cliente em potencial procura "websites profissionais em Lisboa" ou "agência web", o Google utiliza centenas de fatores para decidir qual website aparece primeiro. Um website com boa estratégia SEO terá muito mais probabilidade de estar nessas primeiras posições — onde a maioria dos cliques acontecem.</p>
+                <p>Quando um cliente em potencial procura "websites profissionais" ou "agência web", o Google utiliza centenas de fatores para decidir qual website aparece primeiro. Um website com boa estratégia SEO terá muito mais probabilidade de estar nessas primeiras posições — onde a maioria dos cliques acontecem.</p>
 
-                <p><strong>Por que é importante?</strong> Porque 93% das experiências online começam com um motor de busca. Se o seu website não aparecer nos primeiros resultados, está a perder clientes para a concorrência. Um bom SEO não é apenas sobre aparecer — é sobre aparecer para as pessoas certas, no momento certo.</p>
+                <p><strong>Por que é importante?</strong> Porque 93% das experiências online começam com um motor de busca. Se o seu website não aparecer nos primeiros resultados, está a perder clientes para a concorrência.</p>
 
                 <ul class="seo-list">
                     <li>
@@ -825,11 +765,11 @@
                     </li>
                     <li>
                         <strong>Conteúdo de Qualidade</strong>
-                        <span>Criamos conteúdo relevante e valioso que responde às perguntas dos seus clientes e melhora o ranking.</span>
+                        <span>Criamos conteúdo relevante e valioso que responde às perguntas dos seus clientes.</span>
                     </li>
                     <li>
                         <strong>Otimização Técnica</strong>
-                        <span>Garantimos que o seu website tem uma estrutura técnica sólida, velocidade de carregamento otimizada e é facilmente indexável pelo Google.</span>
+                        <span>Garantimos que o seu website tem uma estrutura técnica sólida e velocidade de carregamento otimizada.</span>
                     </li>
                     <li>
                         <strong>Autoridade e Backlinks</strong>
@@ -859,7 +799,7 @@
                 </div>
                 <div class="project-info">
                     <h3>Pastelaria Artesanal</h3>
-                    <p>Website responsivo e otimizado para conversão. Resultado: +180% de contactos online, +45% de vendas diretas.</p>
+                    <p>Website responsivo e otimizado para conversão. Resultado: +180% de contactos online.</p>
                 </div>
             </div>
 
@@ -876,7 +816,7 @@
                 </div>
                 <div class="project-info">
                     <h3>Pantera Negra</h3>
-                    <p>Plataforma digital com design moderno e performance otimizada. Resultado: +220% de leads qualificados, +35% de taxa de conversão.</p>
+                    <p>Plataforma digital com design moderno e performance otimizada. Resultado: +220% de leads qualificados.</p>
                 </div>
             </div>
         </div>
