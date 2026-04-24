@@ -43,51 +43,51 @@
         @keyframes scrollAuto { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 12)); } }
 
         /* COMPARAÇÃO 3D */
-        .compare-section { padding: 80px 2rem; text-align: center; }
+        .compare-section { padding: 100px 2rem; text-align: center; }
         .compare-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; perspective: 1500px; }
         .compare-card { background: var(--bg-light); padding: 50px 40px; border-radius: 24px; border: 1px solid var(--border); text-align: left; transition: var(--transition); }
         .compare-card:hover { transform: translateY(-15px) rotateX(6deg) rotateY(-6deg); box-shadow: 0 40px 80px rgba(26, 54, 93, 0.1); background: white; }
         .compare-item { display: flex; gap: 12px; margin-bottom: 15px; font-weight: 500; }
 
-        /* GOOGLE SEO */
-        .seo-box { padding: 80px 2rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: flex-start; }
-        .seo-img { position: relative; margin-top: -40px; }
+        /* GOOGLE SEO - FORMATO MAIOR E ELEVADO */
+        .seo-box { padding: 100px 2rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: flex-start; }
+        .seo-img { position: relative; margin-top: -40px; } /* Puxa a imagem para cima */
         .seo-img img { width: 100%; border-radius: 25px; box-shadow: 0 40px 100px rgba(0,0,0,0.1); transform: scale(1.05); }
         .seo-text h2 { font-size: 2.4rem; color: var(--primary); margin-bottom: 1.5rem; font-weight: 800; }
 
         /* PORTFÓLIO */
         .portfolio { padding: 80px 2rem; background: var(--bg-light); }
-        .browser { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 1000px; margin: 0 auto 60px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .browser-header { background: #f1f3f4; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .browser-dots { display: flex; gap: 6px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; }
-        .info-box { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: help; position: relative; }
-        .info-box:hover::after { content: "Aviso: Este projeto é um template demonstrativo."; position: absolute; right: 30px; top: 0; background: #333; color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; white-space: nowrap; z-index: 100; }
-        iframe { width: 100%; height: 500px; border: none; }
+        .browser { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 1000px; margin: 0 auto 40px; position: relative; }
+        .browser-header { background: #f1f3f4; padding: 12px 20px; display: flex; justify-content: flex-end; }
+        .info-box { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: help; }
+        iframe { width: 100%; height: 550px; border: none; }
 
-        /* SECÇÃO APRESENTAÇÃO */
-        .presentation-section { padding: 80px 2rem; max-width: 1000px; margin: 0 auto; background: var(--primary); border-radius: 30px; color: white; display: flex; align-items: center; gap: 3rem; margin-bottom: 80px; }
-        .pres-icon { font-size: 4rem; }
-        .pres-text h2 { font-size: 2rem; margin-bottom: 1rem; }
-        .pres-text p { opacity: 0.9; margin-bottom: 1.5rem; }
-        .btn-download { background: white; color: var(--primary); padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; }
-        .btn-download:hover { background: var(--accent); color: white; }
-
-        /* CHATBOT */
+        /* CHATBOT PROFISSIONAL */
         #chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
-        #chat-button { background: var(--primary); color: white; width: 65px; height: 65px; border-radius: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 15px 35px rgba(26, 54, 93, 0.3); border: none; }
-        #chat-window { position: absolute; bottom: 85px; right: 0; width: 350px; height: 500px; background: white; border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--border); }
+        #chat-button { 
+            background: var(--primary); 
+            color: white; width: 65px; height: 65px; border-radius: 22px; 
+            display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; box-shadow: 0 15px 35px rgba(26, 54, 93, 0.3); 
+            transition: 0.3s; border: none; 
+        }
+        #chat-button:hover { transform: scale(1.05); background: var(--accent); }
+        #chat-window { 
+            position: absolute; bottom: 85px; right: 0; width: 350px; height: 500px; 
+            background: white; border-radius: 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.2); 
+            display: none; flex-direction: column; overflow: hidden; border: 1px solid var(--border); 
+        }
         #chat-header { background: var(--primary); color: white; padding: 20px; font-weight: 700; }
-        #chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        #chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; }
         .msg { padding: 12px 16px; border-radius: 15px; max-width: 85%; font-size: 0.9rem; }
-        .msg-bot { background: var(--bg-light); align-self: flex-start; border: 1px solid var(--border); }
+        .msg-bot { background: var(--bg-light); align-self: flex-start; color: var(--text-main); border: 1px solid var(--border); }
         .msg-user { background: var(--accent); color: white; align-self: flex-end; }
         #chat-input-area { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
         #chat-input { flex: 1; border: 1px solid var(--border); padding: 10px 15px; border-radius: 12px; }
         #chat-send { background: var(--primary); color: white; border: none; padding: 0 15px; border-radius: 10px; cursor: pointer; }
 
         @media (max-width: 900px) {
-            .hero, .compare-grid, .seo-box, .presentation-section { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
+            .hero, .compare-grid, .seo-box { grid-template-columns: 1fr; text-align: center; }
             .seo-img { margin-top: 0; }
         }
     </style>
@@ -103,20 +103,40 @@
     <section class="hero">
         <div class="hero-text">
             <h1>Websites que constroem autoridade.</h1>
-            <p>Design de alta fidelidade e performance digital para empresas que procuram resultados concretos.</p>
+            <p>Design de alta fidelidade e performance digital para empresas que não aceitam ser apenas mais uma na internet.</p>
             <a href="mailto:novapixelpt@gmail.com" class="btn-cta">Solicitar orçamento</a>
         </div>
         <div class="hero-img"><img src="imagem_2026-04-18_175653154.png"></div>
     </section>
 
-    <section class="presentation-section">
-        <div class="pres-icon">📊</div>
-        <div class="pres-text">
-            <h2>Porquê investir num Website?</h2>
-            <p>Descubra como uma presença digital profissional pode transformar o seu negócio. Analise a nossa apresentação exclusiva.</p>
-            <a href="A importância de um Website.pptx" class="btn-download" download>Ver Apresentação (PPTX)</a>
+    <div class="slider-box">
+        <div class="slider-track">
+            <div class="slide"><img src="Waze_logo_2022.png"></div>
+            <div class="slide"><img src="image-removebg-preview.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154931883.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155040554.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155212834.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155427115.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155455016.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
+            <div class="slide"><img src="Waze_logo_2022.png"></div>
+            <div class="slide"><img src="image-removebg-preview.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154931883.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155040554.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155212834.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155427115.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155455016.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
         </div>
-    </section>
+    </div>
 
     <section class="compare-section">
         <div class="compare-grid">
@@ -124,13 +144,13 @@
                 <h3 style="color: var(--danger);">Sem Website Profissional</h3>
                 <div class="compare-item">✕ Invisível para clientes no Google.</div>
                 <div class="compare-item">✕ Falta de credibilidade imediata.</div>
-                <div class="compare-item">✕ Dependência total de redes sociais.</div>
+                <div class="compare-item">✕ Dependência de redes sociais.</div>
             </div>
             <div class="compare-card">
                 <h3 style="color: var(--success);">Com Website Estratégico</h3>
                 <div class="compare-item">✓ No topo das pesquisas orgânicas.</div>
-                <div class="compare-item">✓ Autoridade e confiança no mercado.</div>
-                <div class="compare-item">✓ Disponibilidade global 24 horas.</div>
+                <div class="compare-item">✓ Autoridade e confiança total.</div>
+                <div class="compare-item">✓ Disponibilidade global 24/7.</div>
             </div>
         </div>
     </section>
@@ -139,27 +159,15 @@
         <div class="seo-img"><img src="imagem_2026-04-23_152656127.png"></div>
         <div class="seo-text">
             <h2>Domine as pesquisas locais.</h2>
-            <p>O SEO permite que o seu negócio seja encontrado por quem já está à procura do que oferece, sem custos por clique. É a base do crescimento sustentável.</p>
+            <p>O Google SEO é o processo de otimizar um website para aparecer nas primeiras posições do Google de forma orgânica. Quanto mais alto apareces, mais visitas recebes.</p>
+            <p>Ter um website hoje é essencial — transmite credibilidade e alarga o teu alcance muito além da zona local. A longo prazo, é o investimento digital com melhor retorno.</p>
         </div>
     </section>
 
     <section class="portfolio">
-        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary); font-weight: 800;">Os Nossos Projetos</h2>
-        
         <div class="browser">
-            <div class="browser-header">
-                <div class="browser-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-                <div class="info-box">i</div>
-            </div>
+            <div class="browser-header"><div class="info-box">i</div></div>
             <iframe src="https://phythecreator.github.io/pastelaria/"></iframe>
-        </div>
-
-        <div class="browser">
-            <div class="browser-header">
-                <div class="browser-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-                <div class="info-box">i</div>
-            </div>
-            <iframe src="https://phythecreator.github.io/panteranegra/"></iframe>
         </div>
     </section>
 
@@ -170,10 +178,10 @@
         <div id="chat-window">
             <div id="chat-header">Consultoria NovaPixel</div>
             <div id="chat-messages">
-                <div class="msg msg-bot">Bom dia. Como posso ajudar o seu projeto digital hoje?</div>
+                <div class="msg msg-bot">Bom dia. Sou o assistente digital da NovaPixel. Como posso ajudar o seu projeto hoje?</div>
             </div>
             <div id="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Escreva a sua dúvida...">
+                <input type="text" id="chat-input" placeholder="Diga-nos o que procura...">
                 <button id="chat-send">Sugerir</button>
             </div>
         </div>
@@ -189,68 +197,77 @@
         chatBtn.onclick = () => chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
 
         const responses = {
-            "preço": "Solicite um orçamento personalizado enviando os detalhes para novapixelpt@gmail.com.",
-            "custo": "Os orçamentos variam consoante as funcionalidades. Contacte-nos para uma análise gratuita.",
-            "valor": "O investimento num site profissional reflete-se no aumento direto da faturação.",
-            "orçamento": "Pode obter um orçamento detalhado clicando no botão principal do site.",
+            "preço": "Os nossos projetos são personalizados. Solicite um orçamento oficial pelo botão 'Solicitar orçamento' ou via novapixelpt@gmail.com.",
+            "custo": "Os orçamentos variam consoante a complexidade. Contacte-nos para uma análise gratuita.",
+            "valor": "O valor de um site profissional paga-se com o aumento da confiança dos seus clientes.",
+            "orçamento": "Pode obter um orçamento detalhado enviando os detalhes para novapixelpt@gmail.com.",
             "tempo": "Entregamos o seu website profissional em apenas 2 dias úteis.",
-            "prazo": "Garantimos a entrega em 48 horas úteis após a receção do conteúdo.",
-            "rapidez": "Somos líderes em rapidez de entrega mantendo o padrão de design premium.",
-            "entrega": "Recebe o projeto pronto a faturar, com domínio e email profissional.",
-            "google": "Otimizamos a sua estrutura para que apareça nos primeiros lugares do Google.",
-            "seo": "Aplicamos as melhores técnicas de SEO orgânico para atrair tráfego qualificado.",
-            "ranking": "O nosso objetivo é colocar a sua marca no topo das pesquisas locais.",
-            "visibilidade": "Aumentamos a sua visibilidade digital para que nunca perca uma oportunidade de negócio.",
-            "telemóvel": "Todos os nossos projetos são Mobile-First (100% responsivos).",
-            "mobile": "O seu site será perfeito em smartphones, tablets e computadores.",
-            "tablet": "Garantimos uma navegação fluida em qualquer dispositivo móvel.",
-            "responsivo": "Sim, todos os nossos websites adaptam-se automaticamente a qualquer ecrã.",
-            "pagamento": "Aceitamos pagamentos faseados: 50% de sinal e 50% na aprovação final.",
-            "sinal": "O sinal de 50% permite-nos alocar os recursos necessários ao seu projeto.",
-            "iban": "Os dados bancários serão fornecidos após a adjudicação do orçamento.",
-            "mbway": "Sim, aceitamos pagamentos via MBWAY para maior agilidade.",
-            "contacto": "Fale connosco através do email oficial: novapixelpt@gmail.com.",
-            "email": "O nosso contacto centralizado é novapixelpt@gmail.com.",
-            "ajuda": "Estamos aqui para guiar a sua empresa rumo ao sucesso digital.",
-            "suporte": "Oferecemos suporte técnico pós-entrega para qualquer dúvida que surja.",
-            "vendas": "Um site profissional é a sua melhor ferramenta de vendas ativa 24/7.",
-            "clientes": "Capte clientes que já estão à procura dos seus serviços no motor de busca.",
-            "lucro": "Ter um site estratégico é o investimento com maior ROI no mundo digital.",
-            "segurança": "Incluímos certificado SSL em todos os planos para garantir a segurança dos dados.",
-            "ssl": "O seu site terá o cadeado de segurança e protocolo HTTPS garantido.",
-            "https": "Protegemos a integridade do seu site e a confiança dos seus utilizadores.",
-            "domínio": "Tratamos de todo o processo de registo e configuração do seu domínio (.pt, .com, etc).",
-            "alojamento": "O seu site ficará alojado em servidores de alta performance e ultra-rápidos.",
-            "hosting": "Trabalhamos com os melhores servidores para garantir que o seu site nunca falha.",
-            "template": "Os exemplos apresentados são bases de design de alta fidelidade que adaptamos a cada cliente.",
-            "exemplo": "Explore os nossos dois templates no portfólio para ver a qualidade do nosso trabalho.",
-            "portfólio": "O nosso portfólio demonstra versatilidade em diferentes setores de mercado.",
-            "design": "Focamo-nos em design limpo, moderno e focado na experiência do utilizador.",
-            "manutenção": "Pode contar connosco para manter o seu site sempre atualizado e seguro."
+            "prazo": "O nosso compromisso é a entrega em 48 horas úteis após a receção do conteúdo.",
+            "rapidez": "Somos dos mais rápidos do mercado, sem nunca abdicar da qualidade técnica.",
+            "entrega": "O projeto é entregue pronto a usar, com domínio e alojamento configurados.",
+            "google": "Otimizamos o seu site para que o Google o coloque à frente da concorrência.",
+            "seo": "Aplicamos as melhores práticas de SEO para garantir tráfego orgânico qualificado.",
+            "ranking": "O nosso foco é subir o seu ranking nas pesquisas locais e nacionais.",
+            "visibilidade": "Um site sem visibilidade não gera negócio. Nós resolvemos isso.",
+            "telemóvel": "Todos os nossos sites são 100% responsivos (Mobile-First).",
+            "mobile": "Garantimos uma experiência perfeita em smartphones e tablets.",
+            "tablet": "O design adapta-se a qualquer resolução de ecrã automaticamente.",
+            "responsivo": "Sim, a adaptação a dispositivos móveis é um padrão em todos os nossos projetos.",
+            "pagamento": "Trabalhamos com 50% de sinal e 50% após a sua aprovação final.",
+            "sinal": "O sinal de 50% serve para garantir a reserva do seu lugar na nossa agenda de produção.",
+            "iban": "Os detalhes para transferência bancária são enviados juntamente com a fatura pró-forma.",
+            "mbway": "Sim, aceitamos pagamentos via MBWAY para maior comodidade.",
+            "contacto": "Pode falar connosco pelo email novapixelpt@gmail.com.",
+            "email": "O nosso contacto oficial é novapixelpt@gmail.com.",
+            "ajuda": "Estamos aqui para ajudar na sua transição para o digital. O que precisa?",
+            "suporte": "Oferecemos suporte técnico pós-venda para garantir que tudo corre bem.",
+            "vendas": "Um site profissional é o primeiro passo para aumentar a sua taxa de conversão.",
+            "clientes": "Atraia clientes que já estão à procura dos seus serviços no Google.",
+            "lucro": "Investir num website é investir no crescimento direto da sua faturação.",
+            "segurança": "Instalamos certificados SSL em todos os sites para máxima proteção.",
+            "ssl": "Sim, o seu site será seguro (HTTPS) com o cadeado verde no navegador.",
+            "https": "A segurança dos dados é prioridade nos nossos desenvolvimentos.",
+            "domínio": "Ajudamos a escolher e registar o melhor domínio (.pt, .com, etc) para si.",
+            "alojamento": "Oferecemos soluções de alojamento rápidas e seguras em servidores de elite.",
+            "hosting": "O seu site ficará alojado em servidores de alta performance.",
+            "template": "Os exemplos que vê são templates de alta qualidade que usamos como base de design.",
+            "exemplo": "Temos vários exemplos de sucesso. Veja a secção de portfólio no site.",
+            "portfólio": "O nosso portfólio demonstra a nossa versatilidade em diversos setores.",
+            "design": "Criamos interfaces modernas, limpas e focadas no utilizador.",
+            "manutenção": "Pode contratar planos de manutenção para manter o seu site sempre atualizado."
         };
 
         function sendMessage() {
             const text = chatInput.value.toLowerCase().trim();
             if (!text) return;
-            const userDiv = document.createElement('div');
-            userDiv.className = 'msg msg-user';
-            userDiv.innerText = chatInput.value;
-            chatMsgs.appendChild(userDiv);
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'msg msg-user';
+            userMsg.innerText = chatInput.value;
+            chatMsgs.appendChild(userMsg);
             chatInput.value = '';
 
             setTimeout(() => {
-                const botDiv = document.createElement('div');
-                botDiv.className = 'msg msg-bot';
-                let reply = "Para uma análise mais detalhada desse ponto, por favor contacte-nos em novapixelpt@gmail.com.";
-                for (let key in responses) { if (text.includes(key)) { reply = responses[key]; break; } }
-                botDiv.innerText = reply;
-                chatMsgs.appendChild(botDiv);
+                const botMsg = document.createElement('div');
+                botMsg.className = 'msg msg-bot';
+                let reply = "Essa é uma excelente questão. Para uma resposta detalhada, por favor envie um email para novapixelpt@gmail.com.";
+                
+                for (let key in responses) {
+                    if (text.includes(key)) {
+                        reply = responses[key];
+                        break;
+                    }
+                }
+                
+                botMsg.innerText = reply;
+                chatMsgs.appendChild(botMsg);
                 chatMsgs.scrollTop = chatMsgs.scrollHeight;
-            }, 500);
+            }, 550);
         }
 
         chatSend.onclick = sendMessage;
         chatInput.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(); };
     </script>
+
 </body>
 </html>
