@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaPixel | Autoridade Digital</title>
+    <title>NovaPixel | Excelência e Autoridade Digital</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -11,87 +11,115 @@
         :root {
             --primary: #1a365d;
             --accent: #2b6cb0;
-            --text: #2d3748;
-            --light: #f1f5f9;
+            --text-dark: #2d3748;
+            --text-gray: #718096;
+            --light-bg: #f7fafc;
             --white: #ffffff;
             --border: #e2e8f0;
             --success: #2f855a;
             --danger: #c53030;
+            --transition: all 0.3s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.8; background: var(--white); overflow-x: hidden; }
 
-        /* NAVEGAÇÃO */
-        nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .nav-logo img { height: 40px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
+        /* NAVEGAÇÃO Minimalista */
+        nav { background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid var(--border); padding: 1rem 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .nav-container { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .nav-logo img { height: 45px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; }
 
-        /* HERO */
-        .hero { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 40px; }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-size: 3rem; color: var(--primary); line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; color: #4a5568; }
-        .hero-image { flex: 1; }
-        .hero-image img { width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        /* HERO - Foco na Autoridade */
+        .hero { padding: 160px 2rem 100px; max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+        .hero-content h1 { font-size: 3.5rem; color: var(--primary); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 800; letter-spacing: -1px; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--text-gray); }
+        .hero-image img { width: 100%; border-radius: 20px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); }
 
-        /* SLIDER 10 ATIVOS */
-        .slider { background: var(--light); padding: 40px 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .slider-track { display: flex; width: calc(200px * 20); animation: scroll 30s linear infinite; }
-        .slide { width: 200px; padding: 0 30px; display: flex; align-items: center; }
-        .slide img { max-height: 45px; opacity: 0.6; filter: grayscale(1); transition: 0.3s; }
+        /* CARROSSEL DE LOGOS - Nunca Pára, Flui Continuamente */
+        .slider-section { padding: 40px 0; background: var(--light-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; position: relative; }
+        
+        /* Largura calculada para os 13 ativos únicos duplicados (26 no total) */
+        .slider-track { display: flex; width: calc(200px * 26); animation: continuousScroll 40s linear infinite; }
+        
+        /* Removemos o hover que parava a animação */
+        .slider-track:hover { animation-play-state: running; } 
+
+        .slide { width: 200px; padding: 0 30px; display: flex; align-items: center; justify-content: center; }
+        .slide img { max-height: 50px; opacity: 0.5; filter: grayscale(1); transition: opacity 0.3s ease; }
+        
+        /* Mantemos o hover para dar cor individual ao logo */
         .slide:hover img { opacity: 1; filter: grayscale(0); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 10)); } }
+        
+        @keyframes continuousScroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 13)); } }
 
-        /* PORQUÊ (DIRETO) */
-        .why { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .why h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 40px; }
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .why-card { padding: 30px; background: var(--light); border-radius: 10px; text-align: left; }
-        .why-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
+        /* VANTAGENS - Redesenho Profissional */
+        .advantages { padding: 100px 2rem; background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%); text-align: center; }
+        .advantages h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; font-weight: 800; }
+        .advantages p.intro-text { font-size: 1.1rem; color: var(--text-gray); max-width: 700px; margin: 0 auto 5rem; }
+        
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+        .why-card { padding: 40px; background: var(--white); border-radius: 15px; text-align: left; border: 1px solid var(--border); transition: var(--transition); }
+        .why-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .why-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; font-weight: 700; }
+        .why-card p { color: var(--text-gray); font-size: 0.95rem; }
 
-        /* TABELA COMPARAÇÃO */
-        .comp { padding: 80px 20px; background: #fff; }
-        .comp-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .comp-box { padding: 40px; }
-        .comp-no { background: #fcfcfc; border-right: 1px solid var(--border); }
-        .comp-box h3 { margin-bottom: 25px; font-size: 1.5rem; }
-        .comp-item { display: flex; gap: 10px; margin-bottom: 15px; font-weight: 500; }
-        .red { color: var(--danger); font-weight: 800; }
-        .green { color: var(--success); font-weight: 800; }
+        /* COMPARAÇÃO 3D - Redesenho Profissional e Interativo */
+        .comp { padding: 100px 2rem; background: #0c1c38; position: relative; overflow: hidden; }
+        
+        /* Parent com perspectiva para o efeito 3D */
+        .comp-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; perspective: 1000px; }
+        
+        .comp-box { padding: 50px; background: rgba(255, 255, 255, 0.98); border-radius: 20px; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        
+        /* Efeito de inclinação e movimento 3D no hover */
+        .comp-box:hover { transform: translateY(-10px) rotateX(2deg) rotateY(-2deg); box-shadow: 0 40px 80px rgba(0,0,0,0.4); }
+        
+        .comp-no { background: #fbfbfc; }
+        .comp-box h3 { margin-bottom: 30px; font-size: 1.8rem; font-weight: 700; }
+        .comp-item { display: flex; align-items: start; gap: 12px; margin-bottom: 18px; font-weight: 500; font-size: 1rem; }
+        .icon-no { color: var(--danger); font-weight: 800; font-size: 1.2rem; }
+        .icon-yes { color: var(--success); font-weight: 800; font-size: 1.2rem; }
 
-        /* SEO SIMPLIFICADO */
-        .seo { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
-        .seo-content h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; }
-        .seo-image img { border-radius: 15px; width: 100%; }
+        /* GOOGLE SEO SIMPLIFICADO - Texto Atualizado */
+        .seo { padding: 100px 2rem; max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 5rem; }
+        .seo-content { flex: 1; }
+        .seo-content h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem; font-weight: 800; letter-spacing: -1px; }
+        .seo-content p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 1.5rem; text-align: justify; }
+        .seo-image { flex: 1; }
+        .seo-image img { border-radius: 20px; width: 100%; box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
 
-        /* PORTFÓLIO */
-        .portfolio { padding: 80px 20px; background: var(--light); }
-        .browser { background: #fff; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; margin-bottom: 40px; max-width: 1100px; margin-left: auto; margin-right: auto; }
-        .browser-top { background: #eee; padding: 10px 20px; display: flex; gap: 6px; }
+        /* PORTFÓLIO - Visual Profissional */
+        .portfolio { padding: 100px 2rem; background: var(--light-bg); border-top: 1px solid var(--border); }
+        .browser-frame { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 5rem; max-width: 1100px; margin-left: auto; margin-right: auto; box-shadow: 0 40px 100px rgba(0,0,0,0.08); }
+        .browser-top { background: #eee; padding: 12px 25px; display: flex; gap: 8px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; background: #ccc; }
         iframe { width: 100%; height: 500px; border: none; }
 
-        /* FAQ */
-        .faq { padding: 80px 20px; max-width: 800px; margin: 0 auto; }
-        .faq h2 { text-align: center; margin-bottom: 40px; color: var(--primary); }
+        /* FAQ - Claro e Direto */
+        .faq { padding: 100px 2rem; max-width: 800px; margin: 0 auto; }
+        .faq h2 { text-align: center; margin-bottom: 50px; color: var(--primary); font-size: 2.2rem; font-weight: 800; }
         .faq-item { margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-        .faq-item h4 { color: var(--primary); margin-bottom: 10px; }
+        .faq-item h4 { color: var(--primary); margin-bottom: 10px; font-weight: 600; }
+        .faq-item p { color: var(--text-gray); font-size: 0.95rem; }
 
-        /* FOOTER */
-        footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; }
-        .footer-logo img { height: 45px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+        /* FOOTER CORPORATIVO */
+        footer { background: var(--primary); color: var(--white); padding: 80px 2rem; }
+        .footer-logo img { height: 50px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); text-align: left; gap: 40px; }
+        .footer-col h4 { margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col p { color: #a0aec0; font-size: 0.95rem; margin-bottom: 10px; }
 
-        /* RESPONSIVO */
-        @media (max-width: 900px) {
+        /* RESPONSIVIDADE - Mantendo a Interface */
+        @media (max-width: 1000px) {
             .hero, .why-grid, .comp-container, .seo, .footer-grid { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
+            .hero-content h1, .advantages h2, .seo-content h2 { font-size: 2.2rem; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
             .why-card { text-align: center; }
-            .comp-no { border-right: none; border-bottom: 1px solid var(--border); }
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.2rem; }
+            .browser-frame iframe { height: 400px; }
+            .comp-box:hover { transform: translateY(-5px); /* Efeito 3D reduzido no mobile */ }
         }
     </style>
 </head>
@@ -102,27 +130,30 @@
             <div class="nav-logo"><img src="imagem_2026-04-18_173910294.png"></div>
             <ul class="nav-links">
                 <li><a href="#vagas">Vantagens</a></li>
+                <li><a href="#seo">SEO</a></li>
                 <li><a href="#projetos">Portfólio</a></li>
                 <li><a href="#faq">Dúvidas</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>O seu negócio merece um site que vende.</h1>
-            <p>Transformamos a sua presença digital numa montra de alta performance. Profissionalismo, rapidez e resultados.</p>
-            <a href="mailto:info@novapixel.pt" style="background: var(--primary); color:white; padding: 15px 30px; text-decoration:none; border-radius:5px; font-weight:bold;">Começar Agora</a>
+            <p>Transformamos a sua presença digital numa montra de alta performance. Profissionalismo, rapidez e resultados que impactam o seu negócio.</p>
+            <a href="mailto:info@novapixel.pt" style="background: var(--accent); color:white; padding: 1rem 2.5rem; text-decoration:none; border-radius:8px; font-weight:bold; font-size:1.1rem; box-shadow: 0 10px 20px rgba(43, 108, 176, 0.2);">Começar Agora</a>
         </div>
         <div class="hero-image">
             <img src="imagem_2026-04-18_175653154.png">
         </div>
     </section>
 
-    <div class="slider">
+    <div class="slider-section">
         <div class="slider-track">
+            <div class="slide"><img src="ChatGPT Image 24_04_2026, 11_44_18.png"></div>
+            <div class="slide"><img src="Waze_logo_2022.png"></div>
+            <div class="slide"><img src="image-removebg-preview.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
-            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
@@ -131,28 +162,38 @@
             <div class="slide"><img src="imagem_2026-04-23_155212834.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_155427115.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_155455016.png"></div>
-            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
+            <div class="slide"><img src="ChatGPT Image 24_04_2026, 11_44_18.png"></div>
+            <div class="slide"><img src="Waze_logo_2022.png"></div>
+            <div class="slide"><img src="image-removebg-preview.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154409336.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154732746.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154817425.png"></div>
             <div class="slide"><img src="imagem_2026-04-23_154902843.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154931883.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155040554.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155212834.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155427115.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_155455016.png"></div>
+            <div class="slide"><img src="imagem_2026-04-23_154433147.png"></div>
         </div>
     </div>
 
-    <section class="why" id="vagas">
-        <h2>O Digital não espera por ninguém</h2>
+    <section class="advantages" id="vagas">
+        <h2>O seu negócio não pode dar-se ao luxo de esperar</h2>
+        <p class="intro-text">O mercado digital avança rapidamente e quem não se posiciona com profissionalismo fica para trás. Criamos soluções que entregam autoridade e resultados.</p>
         <div class="why-grid">
             <div class="why-card">
-                <h3>Credibilidade</h3>
-                <p>Quem não é visto, não é lembrado. Um site profissional é o primeiro passo para o cliente confiar em si.</p>
+                <h3>Autoridade de Marca</h3>
+                <p>Projete uma imagem profissional que gera confiança imediata no seu cliente. O seu site é a sua montra digital oficial.</p>
             </div>
             <div class="why-card">
-                <h3>Montra 24/7</h3>
-                <p>O seu negócio nunca fecha. Receba pedidos e contactos enquanto está a descansar.</p>
+                <h3>Processos Automáticos</h3>
+                <p>Receba agendamentos, orçamentos ou vendas diretamente no site, libertando a sua equipa e garantindo disponibilidade 24/7.</p>
             </div>
             <div class="why-card">
-                <h3>Domínio Próprio</h3>
-                <p>Não dependa apenas das redes sociais. Seja dono da sua própria plataforma e base de dados.</p>
+                <h3>Controlo da Mensagem</h3>
+                <p>Diferente do Instagram, no seu site você é o dono da plataforma. Controle a narrativa e recolha dados valiosos.</p>
             </div>
         </div>
     </section>
@@ -160,86 +201,86 @@
     <section class="comp">
         <div class="comp-container">
             <div class="comp-box comp-no">
-                <h3 style="color: var(--danger);">Sem Website</h3>
-                <div class="comp-item"><span class="red">✕</span> Invisível no Google</div>
-                <div class="comp-item"><span class="red">✕</span> Menos confiança do cliente</div>
-                <div class="comp-item"><span class="red">✕</span> Dependente do Instagram/FB</div>
-                <div class="comp-item"><span class="red">✕</span> Imagem amadora do negócio</div>
+                <h3 style="color: var(--danger);">Sem Website Profissional</h3>
+                <div class="comp-item"><span class="icon-no">✕</span> Invisível para o Google e Maps.</div>
+                <div class="comp-item"><span class="icon-no">✕</span> Menos confiança e credibilidade online.</div>
+                <div class="comp-item"><span class="icon-no">✕</span> Dependência total de algoritmos de terceiros.</div>
+                <div class="comp-item"><span class="icon-no">✕</span> Falta de dados e métricas de desempenho.</div>
+                <div class="comp-item"><span class="icon-no">✕</span> Imagem desatualizada do negócio.</div>
             </div>
             <div class="comp-box">
-                <h3 style="color: var(--success);">Com Website</h3>
-                <div class="comp-item"><span class="green">✓</span> Encontrado por novos clientes</div>
-                <div class="comp-item"><span class="green">✓</span> Autoridade máxima no setor</div>
-                <div class="comp-item"><span class="green">✓</span> Canal de vendas direto</div>
-                <div class="comp-item"><span class="green">✓</span> Design moderno e apelativo</div>
+                <h3 style="color: var(--success);">Com Website NovaPixel</h3>
+                <div class="comp-item"><span class="icon-yes">✓</span> Posicionamento no topo do Google orgânico.</div>
+                <div class="comp-item"><span class="icon-yes">✓</span> Autoridade instantânea no mercado.</div>
+                <div class="comp-item"><span class="icon-yes">✓</span> Canal direto para gerar leads e vendas.</div>
+                <div class="comp-item"><span class="icon-yes">✓</span> Métricas completas para decisões estratégicas.</div>
+                <div class="comp-item"><span class="icon-yes">✓</span> Design moderno que atrai novos clientes.</div>
             </div>
         </div>
     </section>
 
-    <section class="seo">
-        <div class="seo-content">
-            <h2>Google SEO: Apareça primeiro</h2>
-            <p>SEO é o que faz o seu site aparecer no Google quando alguém pesquisa o que você vende. Sem isto, o seu site é uma ilha deserta.</p>
-            <p>Otimizamos toda a estrutura para que os motores de busca coloquem a sua empresa à frente da concorrência de forma orgânica.</p>
-        </div>
+    <section class="seo" id="seo">
         <div class="seo-image">
             <img src="imagem_2026-04-23_152656127.png">
+        </div>
+        <div class="seo-content">
+            <h2>Fique mais perto do seu cliente ideal.</h2>
+            <p>O Google SEO é o processo de otimizar um website para aparecer nas primeiras posições do Google de forma orgânica, ou seja, sem pagar por anúncios. Quanto mais alto apareces, mais visitas recebes.</p>
+            <p>Ter um website hoje é essencial — está disponível 24/7, transmite credibilidade, alarga o teu alcance muito além da zona local e atrai clientes que já estão à procura do que ofereces. A longo prazo, é o investimento digital com melhor retorno.</p>
         </div>
     </section>
 
     <section class="portfolio" id="projetos">
-        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Projetos que entregam valor</h2>
-        <div class="browser">
-            <div class="browser-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <h2 style="text-align: center; margin-bottom: 50px; color: var(--primary); font-weight: 800; font-size: 2.2rem;">Ecossistemas Digitais Realizados</h2>
+        <div class="browser-frame">
+            <div class="browser-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url-bar">https://phythecreator.github.io/pastelaria/</div></div>
             <iframe src="https://phythecreator.github.io/pastelaria/"></iframe>
         </div>
-        <div class="browser">
-            <div class="browser-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div class="browser-frame">
+            <div class="browser-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url-bar">https://phythecreator.github.io/panteranegra/</div></div>
             <iframe src="https://phythecreator.github.io/panteranegra/"></iframe>
         </div>
     </section>
 
     <section class="faq" id="faq">
-        <h2>FAQ - Perguntas Frequentes</h2>
+        <h2>Perguntas Frequentes</h2>
         <div class="faq-item">
-            <h4>Quanto tempo demora a entrega?</h4>
-            <p>Garantimos o seu website profissional pronto a faturar em apenas <strong>2 dias úteis</strong> após o envio de todo o conteúdo.</p>
+            <h4>Quanto tempo demora a entrega do website?</h4>
+            <p>O prazo médio para projetos profissionais de alta performance é de apenas <strong>2 dias úteis</strong>, garantindo rapidez e eficiência.</p>
         </div>
         <div class="faq-item">
-            <h4>O site funciona em telemóveis?</h4>
-            <p>Claro. Todos os nossos projetos são totalmente responsivos para PC, Tablet e Telemóvel.</p>
+            <h4>O site será otimizado para telemóveis?</h4>
+            <p>Claro. Todos os nossos projetos seguem a filosofia Mobile-First, garantindo uma experiência perfeita em PC, Tablet e Smartphones.</p>
         </div>
         <div class="faq-item">
-            <h4>Preciso de saber programar para gerir o site?</h4>
-            <p>Não. Entregamos uma solução intuitiva para que possa fazer alterações básicas sem qualquer stress técnico.</p>
+            <h4>Terei acesso para editar o conteúdo do site?</h4>
+            <p>Sim. Entregamos a solução com total autonomia para que possa editar informações básicas sem dependência técnica.</p>
         </div>
         <div class="faq-item">
             <h4>Como funciona o pagamento?</h4>
-            <p>Trabalhamos com total transparência: sinal inicial para reserva e o restante apenas após a conclusão do projeto.</p>
+            <p>Trabalhamos com entrada de 50% e o restante apenas após a sua aprovação total do projeto final.</p>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo"><img src="imagem_2026-04-18_173910294.png"></div>
         <div class="footer-grid">
-            <div>
-                <h4>Contactos</h4>
-                <p>Email: geral@novapixel.pt</p>
-                <p>Tel: +351 912 345 678</p>
+            <div class="footer-col">
+                <div class="footer-logo"><img src="imagem_2026-04-18_173910294.png"></div>
+                <p>Autoridade Digital e Performance Corporativa.</p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Menu</h4>
-                <p>Vantagens</p>
-                <p>SEO</p>
-                <p>Portfólio</p>
+                <p><a href="#inicio" style="color:#cbd5e0;">Início</a></p>
+                <p><a href="#vagas" style="color:#cbd5e0;">Vantagens</a></p>
+                <p><a href="#projetos" style="color:#cbd5e0;">Portfólio</a></p>
             </div>
-            <div>
+            <div class="footer-col">
                 <h4>Horário</h4>
                 <p>Segunda a Sexta</p>
                 <p>09:00 - 18:30</p>
             </div>
         </div>
-        <p style="margin-top: 40px; opacity: 0.6; font-size: 0.8rem;">&copy; 2026 NovaPixel. Digital Authority Partners.</p>
+        <p style="text-align: center; margin-top: 40px; opacity: 0.6; font-size: 0.8rem;">&copy; 2026 NovaPixel. Digital Authority Partners.</p>
     </footer>
 
 </body>
