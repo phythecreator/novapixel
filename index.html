@@ -42,7 +42,7 @@
         .slide img { max-height: 45px; opacity: 0.4; filter: grayscale(1); }
         @keyframes scrollAuto { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-200px * 12)); } }
 
-        /* COMPARAÇÃO ATUALIZADA */
+        /* COMPARAÇÃO */
         .compare-section { padding: 100px 2rem; text-align: center; }
         .compare-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; perspective: 1500px; }
         .compare-card { background: var(--bg-light); padding: 40px; border-radius: 24px; border: 1px solid var(--border); text-align: left; transition: var(--transition); }
@@ -59,6 +59,7 @@
         .pres-content p { opacity: 0.8; margin-bottom: 1.5rem; }
         .btn-pptx { background: #d24123; color: white; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
         .btn-pptx:hover { transform: scale(1.05); background: #b3351b; }
+        .pres-logo-svg { width: 100px; height: 100px; fill: white; opacity: 0.9; }
 
         /* GOOGLE SEO */
         .seo-box { padding: 100px 2rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: flex-start; }
@@ -69,7 +70,8 @@
         /* PORTFÓLIO */
         .portfolio { padding: 80px 2rem; background: var(--bg-light); }
         .browser { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 1000px; margin: 0 auto 40px; position: relative; }
-        .browser-header { background: #f1f3f4; padding: 12px 20px; display: flex; justify-content: flex-end; }
+        .browser-header { background: #f1f3f4; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .browser-address-bar { background: white; border-radius: 5px; height: 24px; width: 60%; border: 1px solid #ddd; display: flex; align-items: center; padding: 0 10px; font-size: 11px; color: #666; }
         .info-box { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: help; }
         iframe { width: 100%; height: 550px; border: none; }
 
@@ -143,22 +145,22 @@
             <div class="compare-card">
                 <h3 style="color: var(--danger);">Sem Website Profissional</h3>
                 <div class="compare-list">
-                    <div class="compare-item"><span class="icon-neg">✕</span> Visibilidade reduzida — O seu negócio fica dependente de referências e da sua localização física, perdendo uma parte significativa de potenciais clientes que pesquisam online antes de decidir.</div>
-                    <div class="compare-item"><span class="icon-neg">✕</span> Credibilidade comprometida — Hoje, a ausência de presença digital pode transmitir falta de profissionalismo, levando clientes a optarem pela concorrência.</div>
-                    <div class="compare-item"><span class="icon-neg">✕</span> Processos mais lentos e dispendiosos — Sem automação, toda a gestão de contactos, encomendas e reservas é feita manualmente, aumentando o tempo e os custos operacionais.</div>
-                    <div class="compare-item"><span class="icon-neg">✕</span> Ausência de dados estratégicos — Não é possível medir o interesse do mercado, perceber o comportamento dos clientes nem tomar decisões com base em informação real.</div>
-                    <div class="compare-item"><span class="icon-neg">✕</span> Capacidade de crescimento limitada — Expandir para novos mercados ou geografias torna-se consideravelmente mais difícil e dispendioso sem uma plataforma digital própria.</div>
+                    <div class="compare-item"><span class="icon-neg">✕</span> Visibilidade reduzida — O seu negócio fica dependente de referências e da sua localização física.</div>
+                    <div class="compare-item"><span class="icon-neg">✕</span> Credibilidade comprometida — A ausência de presença digital pode transmitir falta de profissionalismo.</div>
+                    <div class="compare-item"><span class="icon-neg">✕</span> Processos mais lentos — Gestão de contactos e reservas manual aumenta o tempo e os custos.</div>
+                    <div class="compare-item"><span class="icon-neg">✕</span> Ausência de dados — Não é possível medir o interesse do mercado nem o comportamento dos clientes.</div>
+                    <div class="compare-item"><span class="icon-neg">✕</span> Crescimento limitado — Expandir torna-se difícil e dispendioso sem uma plataforma digital.</div>
                 </div>
             </div>
             
             <div class="compare-card">
                 <h3 style="color: var(--success);">Negócio com Website — 5 Pontos Estratégicos</h3>
                 <div class="compare-list">
-                    <div class="compare-item"><span class="icon-pos">✓</span> Presença permanente no mercado — O seu negócio está disponível 24 horas por dia, 7 dias por semana, permitindo que clientes o encontrem e contactem a qualquer momento, independentemente do horário de funcionamento.</div>
-                    <div class="compare-item"><span class="icon-pos">✓</span> Credibilidade e imagem profissional — Um website bem construído transmite confiança imediata, valoriza a marca e diferencia o negócio da concorrência logo no primeiro contacto.</div>
-                    <div class="compare-item"><span class="icon-pos">✓</span> Processos automatizados e mais eficientes — Encomendas, reservas, pagamentos e pedidos de informação podem ser geridos automaticamente, reduzindo custos operacionais e libertando tempo para o que realmente importa.</div>
-                    <div class="compare-item"><span class="icon-pos">✓</span> Acesso a dados e decisões mais inteligentes — Com um website é possível monitorizar o comportamento dos clientes, medir resultados e ajustar a estratégia com base em informação concreta e em tempo real.</div>
-                    <div class="compare-item"><span class="icon-pos">✓</span> Plataforma de crescimento escalável — Um website permite alcançar novos mercados, expandir geograficamente e crescer de forma sustentada, sem os limites impostos por uma presença exclusivamente física.</div>
+                    <div class="compare-item"><span class="icon-pos">✓</span> Presença permanente — O seu negócio disponível 24 horas por dia, 7 dias por semana.</div>
+                    <div class="compare-item"><span class="icon-pos">✓</span> Credibilidade total — Um website profissional transmite confiança imediata e valoriza a marca.</div>
+                    <div class="compare-item"><span class="icon-pos">✓</span> Processos automatizados — Encomendas e reservas geridas automaticamente, libertando o seu tempo.</div>
+                    <div class="compare-item"><span class="icon-pos">✓</span> Decisões inteligentes — Monitorize o comportamento dos clientes e ajuste a estratégia em tempo real.</div>
+                    <div class="compare-item"><span class="icon-pos">✓</span> Plataforma escalável — Alcance novos mercados e cresça de forma sustentada sem limites físicos.</div>
                 </div>
             </div>
         </div>
@@ -172,7 +174,11 @@
                 <span>📥</span> Descarregar Apresentação (.pptx)
             </a>
         </div>
-        <div style="font-size: 5rem;">📊</div>
+        <div class="pres-icon">
+            <svg class="pres-logo-svg" viewBox="0 0 24 24">
+                <path d="M21.17 3.25q.33 0 .59.25.24.24.24.58v15.84q0 .34-.24.58-.26.25-.59.25H7.83q-.34 0-.59-.25-.24-.24-.24-.58V17H2.83q-.34 0-.59-.25-.24-.24-.24-.58V7.83q0-.34.24-.59.25-.24.59-.24h4.17V3.25q0-.34.24-.58.25-.25.59-.25h12.17M9 7h8v2H9V7m0 4h8v2H9v-2m0 4h5v2H9v-2Z"/>
+            </svg>
+        </div>
     </section>
 
     <section class="seo-box">
@@ -187,9 +193,18 @@
     <section class="portfolio">
         <div class="browser">
             <div class="browser-header">
+                <div class="browser-address-bar">/pastelaria/</div>
                 <div class="info-box" title="Aviso: Este é um template demonstrativo.">i</div>
             </div>
             <iframe src="https://phythecreator.github.io/pastelaria/"></iframe>
+        </div>
+
+        <div class="browser">
+            <div class="browser-header">
+                <div class="browser-address-bar">/panteranegra/</div>
+                <div class="info-box" title="Aviso: Este é um template demonstrativo.">i</div>
+            </div>
+            <iframe src="https://phythecreator.github.io/panteranegra/"></iframe>
         </div>
     </section>
 
@@ -220,43 +235,11 @@
 
         const responses = {
             "preço": "Os nossos projetos são personalizados. Solicite um orçamento oficial pelo botão 'Solicitar orçamento' ou via novapixelpt@gmail.com.",
-            "custo": "Os orçamentos variam consoante a complexidade. Contacte-nos para uma análise gratuita.",
-            "valor": "O valor de um site profissional paga-se com o aumento da confiança dos seus clientes.",
-            "orçamento": "Pode obter um orçamento detalhado enviando os detalhes para novapixelpt@gmail.com.",
             "tempo": "Entregamos o seu website profissional em apenas 2 dias úteis.",
-            "prazo": "O nosso compromisso é a entrega em 48 horas úteis após a receção do conteúdo.",
-            "rapidez": "Somos dos mais rápidos do mercado, sem nunca abdicar da qualidade técnica.",
-            "entrega": "O projeto é entregue pronto a usar, com domínio e alojamento configurados.",
             "google": "Otimizamos o seu site para que o Google o coloque à frente da concorrência.",
             "seo": "Aplicamos as melhores práticas de SEO para garantir tráfego orgânico qualificado.",
-            "ranking": "O nosso foco é subir o seu ranking nas pesquisas locais e nacionais.",
-            "visibilidade": "Um site sem visibilidade não gera negócio. Nós resolvemos isso.",
-            "telemóvel": "Todos os nossos sites são 100% responsivos (Mobile-First).",
-            "mobile": "Garantimos uma experiência perfeita em smartphones e tablets.",
-            "tablet": "O design adapta-se a qualquer resolução de ecrã automaticamente.",
             "responsivo": "Sim, a adaptação a dispositivos móveis é um padrão em todos os nossos projetos.",
-            "pagamento": "Trabalhamos com 50% de sinal e 50% após a sua aprovação final.",
-            "sinal": "O sinal de 50% serve para garantir a reserva do seu lugar na nossa agenda de produção.",
-            "iban": "Os detalhes para transferência bancária são enviados juntamente com a fatura pró-forma.",
-            "mbway": "Sim, aceitamos pagamentos via MBWAY para maior comodidade.",
-            "contacto": "Pode falar connosco pelo email novapixelpt@gmail.com.",
-            "email": "O nosso contacto oficial é novapixelpt@gmail.com.",
-            "ajuda": "Estamos aqui para ajudar na sua transição para o digital. O que precisa?",
-            "suporte": "Oferecemos suporte técnico pós-venda para garantir que tudo corre bem.",
-            "vendas": "Um site profissional é o primeiro passo para aumentar a sua taxa de conversão.",
-            "clientes": "Atraia clientes que já estão à procura dos seus serviços no Google.",
-            "lucro": "Investir num website é investir no crescimento direto da sua faturação.",
-            "segurança": "Instalamos certificados SSL em todos os sites para máxima proteção.",
-            "ssl": "Sim, o seu site será seguro (HTTPS) com o cadeado verde no navegador.",
-            "https": "A segurança dos dados é prioridade nos nossos desenvolvimentos.",
-            "domínio": "Ajudamos a escolher e registar o melhor domínio (.pt, .com, etc) para si.",
-            "alojamento": "Oferecemos soluções de alojamento rápidas e seguras em servidores de elite.",
-            "hosting": "O seu site ficará alojado em servidores de alta performance.",
-            "template": "Os exemplos que vê são templates de alta qualidade que usamos como base de design.",
-            "exemplo": "Temos vários exemplos de sucesso. Veja a secção de portfólio no site.",
-            "portfólio": "O nosso portfólio demonstra a nossa versatilidade em diversos setores.",
-            "design": "Criamos interfaces modernas, limpas e focadas no utilizador.",
-            "manutenção": "Pode contratar planos de manutenção para manter o seu site sempre atualizado."
+            "contacto": "Pode falar connosco pelo email novapixelpt@gmail.com."
         };
 
         function sendMessage() {
